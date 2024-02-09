@@ -36,22 +36,27 @@ const NavbarCom = () => {
         </span>
       </NavbarBrand>
 
-      <div className="hidden w-full md:block md:w-auto">
-        <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-          {navlinkList.map((navLink, i) => {
-            return (
-              <Link
-                key={i}
-                href={navLink.link}
-                className={currentPath === navLink.link ? "active" : ""}
-              >
-                {navLink.name}
-              </Link>
-            );
-          })}
-        </ul>
+      <div
+        style={{ gap: "10px" }}
+        className="flex-1 flex justify-end items-center bg-primaryColor"
+      >
+        <div className="hidden w-full md:block md:w-auto ">
+          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            {navlinkList.map((navLink, i) => {
+              return (
+                <Link
+                  key={i}
+                  href={navLink.link}
+                  className={currentPath === navLink.link ? "active" : ""}
+                >
+                  {navLink.name}
+                </Link>
+              );
+            })}
+          </ul>
+        </div>
+        <Cart></Cart>
       </div>
-      <Cart></Cart>
     </Navbar>
   );
 };
