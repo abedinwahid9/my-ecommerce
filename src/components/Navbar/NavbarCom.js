@@ -15,14 +15,14 @@ const NavbarCom = () => {
       link: "/all-category",
     },
     {
-      name: "Contant",
+      name: "Contact",
       link: "/contact",
     },
   ];
 
   return (
     
-    <div style={{gap:"50px"}} className="p-0  container mx-auto flex justify-center items-center" fluid rounded>
+    <div className="p-0  gap-10 container mx-auto flex justify-center items-center" fluid rounded>
       <div className="flex" as={Link} href="https://flowbite-react.com">
         <Image
           width={100}
@@ -37,8 +37,8 @@ const NavbarCom = () => {
       </div>
 
       <div
-        style={{ padding:"15px"}}
-        className="hidden flex-1 md:flex justify-end items-center rounded-bl-full gap-5 bg-primaryColor "
+
+        className="hidden py-3 px-6 flex-1 md:flex justify-end items-center rounded-bl-full gap-5 bg-primaryColor "
       >
         <div className="flex justify-end w-full  ">
           <ul className="flex gap-5  font-medium ">
