@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { Navbar, NavbarBrand } from "flowbite-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Cart from "../Cart/Cart";
@@ -22,8 +21,9 @@ const NavbarCom = () => {
   ];
 
   return (
-    <Navbar fluid rounded>
-      <NavbarBrand as={Link} href="https://flowbite-react.com">
+    
+    <div style={{gap:"50px"}} className="p-0  container mx-auto flex justify-center items-center" fluid rounded>
+      <div className="flex" as={Link} href="https://flowbite-react.com">
         <Image
           width={100}
           height={100}
@@ -32,16 +32,16 @@ const NavbarCom = () => {
           alt="Flowbite React Logo"
         />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Flowbite React
+          pickle
         </span>
-      </NavbarBrand>
+      </div>
 
       <div
-        style={{ gap: "10px" }}
-        className="flex-1 flex justify-end items-center bg-primaryColor"
+        style={{ padding:"15px"}}
+        className="hidden flex-1 md:flex justify-end items-center rounded-bl-full gap-5 bg-primaryColor "
       >
-        <div className="hidden w-full md:block md:w-auto ">
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+        <div className="flex justify-end w-full  ">
+          <ul className="flex gap-5  font-medium ">
             {navlinkList.map((navLink, i) => {
               return (
                 <Link
@@ -57,7 +57,7 @@ const NavbarCom = () => {
         </div>
         <Cart></Cart>
       </div>
-    </Navbar>
+    </div>
   );
 };
 

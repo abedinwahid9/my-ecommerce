@@ -7,12 +7,7 @@ const Cart = () => {
   return (
     <div className="relative w-12 h-12">
       <Lottie animationData={cart} loop={true} />
-      <Badge
-        className="absolute -top-1 rounded-full -right-1 bg-red-700 text-white "
-        size="sm"
-      >
-        5
-      </Badge>
+      <div class="absolute inline-flex items-center justify-center w-8 h-8 text-base text-center font-bold text-white bg-red-500  rounded-full -top-2 -end-2 dark:border-gray-900">10</div>
     </div>
   );
 };

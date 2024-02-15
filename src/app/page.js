@@ -6,6 +6,10 @@ export default function Home() {
     <div>
       <NavbarCom></NavbarCom>
       <MobileNav></MobileNav>
+      <h2 className="text-optionalColor">hello </h2>
+      <h2 className="text-optionalColor">hello </h2>
+      <h2 className="text-optionalColor">hello </h2>
+      <h2 className="text-optionalColor">hello </h2>
     </div>
   );
 }
