@@ -1,3 +1,4 @@
+import BannerSection from "@/components/BannerSection/BannerSection";
 import MobileNav from "@/components/Navbar/MobileNav";
 import NavbarCom from "@/components/Navbar/NavbarCom";
 
@@ -6,7 +7,9 @@ export default function Home() {
     <div>
       <NavbarCom></NavbarCom>
       <MobileNav></MobileNav>
-      {/* hello */}
+      <div className="h-[400px]">
+        <BannerSection></BannerSection>
+      </div>
     </div>
   );
 }
