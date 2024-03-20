@@ -6,6 +6,7 @@ export default function Home() {
     <div>
       <NavbarCom></NavbarCom>
       <MobileNav></MobileNav>
+      {/* hello */}
     </div>
   );
 }
