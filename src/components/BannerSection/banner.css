@@ -1,0 +1,13 @@
+.swiper-pagination-bullet {
+  background-color: red !important;
+  display: inline-block;
+  width: 1rem !important;
+  height: 0.2rem !important;
+  border-radius: 5px !important;
+}
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #60bd74 !important;
+  opacity: 1;
+  width: 2rem !important;
+}

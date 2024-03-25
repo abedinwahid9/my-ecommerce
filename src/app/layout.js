@@ -1,8 +1,7 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import ThemeProviderTailwind from "@/components/ThemeProvider/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+import { lobsterTwo, roboto } from "@/fonts/fonts";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,7 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${lobsterTwo.variable} ${roboto.variable}  font-roboto`}
+      >
         <ThemeProviderTailwind>{children}</ThemeProviderTailwind>
       </body>
     </html>

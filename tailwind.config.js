@@ -13,7 +13,12 @@ module.exports = withMT({
     "path-to-your-node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        lobsterTwo: ["var(--font-lobsterTwo)"],
+        roboto: ["var(--font-roboto)"],
+      },
+    },
     colors: {
       primaryColor: "#60BD74",
       secondaryColor: "#04A956",
