@@ -15,7 +15,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${lobsterTwo.variable} ${roboto.variable}  font-roboto  dark:bg-black`}
       >
-        <ThemeProviderTailwind>{children}</ThemeProviderTailwind>
+        <ThemeProviderTailwind>
+          <MainLayout>{children}</MainLayout>
+        </ThemeProviderTailwind>
       </body>
     </html>
   );

@@ -1,9 +1,17 @@
-// import NavbarCom from "../Navbar/NavbarCom";
-// import { MobileNav } from "@material-tailwind/react";
-// import DarkMode from "../DarkMode/DarkMode";
+"use client";
+import NavbarCom from "../Navbar/NavbarCom";
+import DarkMode from "../DarkMode/DarkMode";
+import MobileNav from "../Navbar/MobileNav";
 
-// const MainLayout = ({ children }) => {
-//   return <div>{children}</div>;
-// };
+const MainLayout = ({ children }) => {
+  return (
+    <div>
+      <NavbarCom></NavbarCom>
+      <MobileNav></MobileNav>
+      {children}
+      <DarkMode></DarkMode>
+    </div>
+  );
+};
 
-// export default MainLayout;
+export default MainLayout;

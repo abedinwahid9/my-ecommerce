@@ -22,26 +22,24 @@ const DarkMode = () => {
   return (
     <div
       style={{ boxShadow: "0px 1px 3px gray inset" }}
-      className="dark:bg-white inline-block  px-2 py-1 rounded-2xl "
+      className="dark:bg-white flex fixed flex-col top-1/2 z-[999] gap-1 px-1 py-1 rounded-2xl "
     >
-      <div className="flex gap-1  ">
-        <button
-          className="text-dark bg-white dark:bg-black dark:text-white p-1 rounded-full duration-1000"
-          onClick={() => {
-            setThemeName(true);
-          }}
-        >
-          <IoMoonOutline />
-        </button>
-        <button
-          className="text-white bg-black dark:text-black dark:bg-white p-1 rounded-full duration-1000"
-          onClick={() => {
-            setThemeName(false);
-          }}
-        >
-          <IoSunnyOutline />
-        </button>
-      </div>
+      <button
+        className="text-dark bg-white dark:bg-black dark:text-white p-1 rounded-full duration-1000"
+        onClick={() => {
+          setThemeName(true);
+        }}
+      >
+        <IoMoonOutline />
+      </button>
+      <button
+        className="text-white bg-black dark:text-black dark:bg-white p-1 rounded-full duration-1000"
+        onClick={() => {
+          setThemeName(false);
+        }}
+      >
+        <IoSunnyOutline />
+      </button>
     </div>
   );
 };

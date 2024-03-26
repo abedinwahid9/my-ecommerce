@@ -15,7 +15,7 @@ import bannerImg from "../../assets/banner.jpeg";
 
 export default function BannerSection() {
   return (
-    <>
+    <div className="drop-shadow-2xl">
       <Swiper
         className="mySwiper styles"
         loop={true}
@@ -52,6 +52,6 @@ export default function BannerSection() {
           />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 }
