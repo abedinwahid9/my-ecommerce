@@ -7,7 +7,6 @@ const DarkMode = () => {
   const [themeName, setThemeName] = useState(false);
   useEffect(() => {
     const theme = localStorage.getItem("theme");
-    console.log(theme);
     if (theme === "dark") setThemeName(true);
   }, []);
   useEffect(() => {

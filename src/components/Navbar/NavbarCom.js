@@ -21,7 +21,7 @@ const NavbarCom = () => {
 
   return (
     <div
-      className="p-0  gap-10  mx-auto flex justify-center items-center"
+      className="p-0  gap-10  mx-auto flex justify-center items-center drop-shadow-xl"
       fluid
       rounded
     >

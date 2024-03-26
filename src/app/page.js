@@ -1,4 +1,5 @@
 import BannerSection from "@/components/BannerSection/BannerSection";
+import Category from "@/components/Category/Category";
 import ShapeDesginOne from "@/components/ShapeDesign/ShapeDesginOne";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
         <BannerSection></BannerSection>
       </div>
       <ShapeDesginOne></ShapeDesginOne>
+      <Category></Category>
     </div>
   );
 }

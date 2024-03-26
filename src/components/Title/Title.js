@@ -1,9 +1,11 @@
 import React from "react";
 
-const Title = () => {
+const Title = ({ title }) => {
   return (
     <div>
-      <h2 className="font-lobsterTwo">our products</h2>
+      <h2 className=" font-lobsterTwo font-bold text-3xl text-secondaryColor uppercase text-center">
+        {title}
+      </h2>
     </div>
   );
 };
