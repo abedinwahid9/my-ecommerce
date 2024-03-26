@@ -9,7 +9,7 @@ import styles from "./mobile.module.css";
 const MobileNav = () => {
   return (
     <div
-      class="fixed md:hidden block px-5 drop-shadow-xl bg-primaryColor w-full rounded-t-3xl p-4 "
+      class="fixed md:hidden block px-5 drop-shadow-xl bg-primaryColor w-full rounded-t-3xl p-4 z-[9999]"
       style={{ bottom: 0 }}
     >
       <ul class="flex justify-between gap-1 items-center">

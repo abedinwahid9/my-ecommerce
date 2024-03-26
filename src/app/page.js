@@ -1,7 +1,7 @@
 import BannerSection from "@/components/BannerSection/BannerSection";
+import DarkMode from "@/components/DarkMode/DarkMode";
 import MobileNav from "@/components/Navbar/MobileNav";
 import NavbarCom from "@/components/Navbar/NavbarCom";
-import Title from "@/components/Title/Title";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <div className="h-[400px]">
         <BannerSection></BannerSection>
       </div>
-      <Title></Title>
+      <DarkMode></DarkMode>
     </div>
   );
 }

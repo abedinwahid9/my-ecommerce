@@ -1,3 +1,4 @@
+import MainLayout from "@/components/MainLayout/MainLayout";
 import "./globals.css";
 import ThemeProviderTailwind from "@/components/ThemeProvider/ThemeProvider";
 
@@ -12,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${lobsterTwo.variable} ${roboto.variable}  font-roboto`}
+        className={`${lobsterTwo.variable} ${roboto.variable}  font-roboto  dark:bg-black`}
       >
         <ThemeProviderTailwind>{children}</ThemeProviderTailwind>
       </body>

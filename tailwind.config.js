@@ -25,5 +25,6 @@ module.exports = withMT({
       optionalColor: "#BDA068",
     },
   },
+  darkMode: "selector",
   plugins: [],
 });
