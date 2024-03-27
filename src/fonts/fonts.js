@@ -1,10 +1,10 @@
-import { Roboto, Lobster_Two } from "next/font/google";
+import { Lora, Lobster_Two } from "next/font/google";
 
-export const roboto = Roboto({
+export const lora = Lora({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-roboto",
+  variable: "--font-lora",
 });
 
 export const lobsterTwo = Lobster_Two({

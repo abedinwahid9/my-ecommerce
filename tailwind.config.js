@@ -16,13 +16,13 @@ module.exports = withMT({
     extend: {
       fontFamily: {
         lobsterTwo: ["var(--font-lobsterTwo)"],
-        roboto: ["var(--font-roboto)"],
+        lora: ["var(--font-lora)"],
       },
     },
     colors: {
       primaryColor: "#60BD74",
       secondaryColor: "#04A956",
-      optionalColor: "#BDA068",
+      optionalColor: "#FBDB66",
     },
   },
   darkMode: "selector",

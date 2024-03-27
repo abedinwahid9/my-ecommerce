@@ -2,7 +2,7 @@ import MainLayout from "@/components/MainLayout/MainLayout";
 import "./globals.css";
 import ThemeProviderTailwind from "@/components/ThemeProvider/ThemeProvider";
 
-import { lobsterTwo, roboto } from "@/fonts/fonts";
+import { lobsterTwo, lora } from "@/fonts/fonts";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${lobsterTwo.variable} ${roboto.variable}  font-roboto  dark:bg-black`}
+        className={`${lobsterTwo.variable} ${lora.variable}  font-lora  dark:bg-black`}
       >
         <ThemeProviderTailwind>
           <MainLayout>{children}</MainLayout>
