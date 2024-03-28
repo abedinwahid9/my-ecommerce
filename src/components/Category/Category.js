@@ -8,10 +8,10 @@ const Category = () => {
   return (
     <div className="container mx-auto">
       <Title title="our categories"></Title>
-      <div className="flex my-6 justify-center gap-10 md:flex-row flex-col items-center">
+      <div className="flex my-6 justify-between gap-10 md:flex-row flex-col items-center">
         <div className="relative drop-shadow-2xl">
           <Image
-            className="w-[300px] h-[200px] object-contain"
+            className="md:w-[400px] w-[300px] h-[200px] object-cover"
             width={0}
             height={0}
             src={single}
@@ -23,7 +23,7 @@ const Category = () => {
         </div>
         <div className="relative drop-shadow-2xl">
           <Image
-            className="w-[300px] h-[200px] object-contain"
+            className="md:w-[400px] w-[300px] h-[200px] object-cover"
             width={0}
             height={0}
             src={packageImg}
@@ -37,7 +37,7 @@ const Category = () => {
         </div>
         <div className="relative drop-shadow-2xl">
           <Image
-            className="w-[300px] h-[200px] object-contain"
+            className="md:w-[400px] w-[300px] h-[200px] object-cover"
             width={0}
             height={0}
             src={packageImg}

@@ -17,7 +17,7 @@ export default function BannerSection() {
   return (
     <div className="drop-shadow-2xl">
       <Swiper
-        className="mySwiper styles"
+        className="mySwiper styles md:h-[500px] h-[250px]"
         loop={true}
         pagination={{
           clickable: true,
@@ -26,7 +26,7 @@ export default function BannerSection() {
       >
         <SwiperSlide>
           <Image
-            className="w-full h-[400px]"
+            className="w-full h-full"
             src={bannerImg}
             width={0}
             height={0}
@@ -35,7 +35,7 @@ export default function BannerSection() {
         </SwiperSlide>{" "}
         <SwiperSlide>
           <Image
-            className="w-full h-[400px]"
+            className="w-full h-full"
             src={bannerImg}
             width={0}
             height={0}
@@ -44,7 +44,7 @@ export default function BannerSection() {
         </SwiperSlide>
         <SwiperSlide>
           <Image
-            className="w-full h-[400px]"
+            className="w-full h-full"
             src={bannerImg}
             width={0}
             height={0}
