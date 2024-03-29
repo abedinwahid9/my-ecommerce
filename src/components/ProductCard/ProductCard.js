@@ -25,7 +25,7 @@ const ProductCard = () => {
       </div>
       <CardBody>
         <div className="mb-3 flex items-center justify-between">
-          <Typography variant="h5" color="blue-gray" className="font-medium">
+          <Typography variant="h6" color="blue-gray" className="font-medium">
             Wooden House, Florida
           </Typography>
           <Typography
@@ -47,7 +47,7 @@ const ProductCard = () => {
             5.0
           </Typography>
         </div>
-        <Typography color="gray">Enter a freshly updated and ...</Typography>
+        <p color="gray">Enter a freshly updated and ...</p>
         <Typography
           className="pt-3 text-center text-base font-semibold"
           color="gray"
