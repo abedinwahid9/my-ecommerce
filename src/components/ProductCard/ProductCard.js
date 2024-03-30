@@ -20,6 +20,8 @@ const ProductCard = () => {
         <Image
           src={pickle}
           alt="card-image"
+          width={0}
+          height={0}
           className="h-full w-full object-contain"
         />
       </div>
