@@ -1,5 +1,5 @@
 import Image from "next/image";
-import shortbanner from "../../assets/bannerImg/banner3.jpg";
+import shortbanner from "../../assets/bannerImg/shortbanner.png";
 
 const ShortBanner = () => {
   return (

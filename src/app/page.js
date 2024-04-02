@@ -1,3 +1,4 @@
+import AnimatedBanner from "@/components/AnimatedBanner/AnimatedBanner";
 import BannerSection from "@/components/BannerSection/BannerSection";
 import Category from "@/components/Category/Category";
 import FeaturedProducts from "@/components/FeaturedProducts/FeaturedProducts";
@@ -13,6 +14,7 @@ export default function Home() {
       <Category></Category>
       <ShortBanner />
       <OurProducts />
+      <AnimatedBanner />
       <FeaturedProducts />
     </div>
   );

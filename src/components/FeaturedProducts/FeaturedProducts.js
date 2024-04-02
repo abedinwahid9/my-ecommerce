@@ -78,13 +78,12 @@ const FeaturedProducts = () => {
               spaceBetween: 20,
             },
           }}
-          className="mySwiper"
+          className="mySwiper "
         >
           {[1, 2, 3, 4, 5, 6, 7, 8].map((card, i) => {
             return (
               <SwiperSlide key={i}>
                 <ProductCard />
-                <h2>{i}</h2>
               </SwiperSlide>
             );
           })}

@@ -11,32 +11,31 @@ import {
 } from "@material-tailwind/react";
 import Image from "next/image";
 import pickle from "../../assets/pickle.jpg";
-import single from "../../assets/categories/single.jpg";
 
 const ProductCard = () => {
   return (
-    <Card className="w-full drop-shadow-xl dark:bg-black overflow-hidden dark:shadow-white">
-      <div className="">
+    <Card className="w-full p-2 border-2 drop-shadow-sm dark:bg-black overflow-hidden dark:shadow-white">
+      <div>
         <Image
           src={pickle}
           alt="card-image"
           width={0}
           height={0}
-          className="h-full  object-contain"
+          className="h-full rounded-lg object-contain"
         />
       </div>
-      <CardBody>
-        <div className="mb-3 flex items-center justify-between">
+      <CardBody className="p-2">
+        <div className=" flex items-start justify-between">
           <Typography
             variant="h5 "
             color="blue-gray"
             className="font-medium dark:text-white"
           >
-            Wooden House <br /> pickle
+            Wooden House pickle
           </Typography>
           <Typography
             color="blue-gray"
-            className="flex items-center gap-1.5 font-normal dark:text-white"
+            className="flex items-center  gap-1.5 font-normal dark:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +56,7 @@ const ProductCard = () => {
           Enter a freshly updated and ...
         </p>
         <Typography
-          className="pt-3 text-center text-base font-semibold dark:text-white"
+          className="pt-2 text-center text-base font-semibold dark:text-white"
           color="gray"
         >
           Price: 300 ৳
