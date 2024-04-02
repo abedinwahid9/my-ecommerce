@@ -15,24 +15,28 @@ import single from "../../assets/categories/single.jpg";
 
 const ProductCard = () => {
   return (
-    <Card className="w-full drop-shadow-xl overflow-hidden">
+    <Card className="w-full drop-shadow-xl dark:bg-black overflow-hidden dark:shadow-white">
       <div className="">
         <Image
           src={pickle}
           alt="card-image"
           width={0}
           height={0}
-          className="h-full w-full object-contain"
+          className="h-full  object-contain"
         />
       </div>
       <CardBody>
         <div className="mb-3 flex items-center justify-between">
-          <Typography variant="h6" color="blue-gray" className="font-medium">
-            Wooden House, Florida
+          <Typography
+            variant="h5 "
+            color="blue-gray"
+            className="font-medium dark:text-white"
+          >
+            Wooden House <br /> pickle
           </Typography>
           <Typography
             color="blue-gray"
-            className="flex items-center gap-1.5 font-normal"
+            className="flex items-center gap-1.5 font-normal dark:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,9 +53,11 @@ const ProductCard = () => {
             5.0
           </Typography>
         </div>
-        <p color="gray">Enter a freshly updated and ...</p>
+        <p color="gray" className="dark:text-white">
+          Enter a freshly updated and ...
+        </p>
         <Typography
-          className="pt-3 text-center text-base font-semibold"
+          className="pt-3 text-center text-base font-semibold dark:text-white"
           color="gray"
         >
           Price: 300 ৳
