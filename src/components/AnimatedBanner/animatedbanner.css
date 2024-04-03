@@ -1,5 +1,5 @@
 .animateImg {
-  animation: floating 3s ease-in-out infinite;
+  animation: floating 5s ease-in-out infinite;
 }
 
 @keyframes floating {

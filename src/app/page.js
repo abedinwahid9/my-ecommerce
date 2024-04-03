@@ -5,6 +5,7 @@ import FeaturedProducts from "@/components/FeaturedProducts/FeaturedProducts";
 import OurProducts from "@/components/OurProducts/OurProducts";
 import ShapeDesginOne from "@/components/ShapeDesign/ShapeDesginOne";
 import ShortBanner from "@/components/ShortBanner/ShortBanner";
+import WhyYouShouldChooseUs from "@/components/WhyYouShouldChooseUs/WhyYouShouldChooseUs";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <OurProducts />
       <AnimatedBanner />
       <FeaturedProducts />
+      <WhyYouShouldChooseUs />
     </div>
   );
 }
