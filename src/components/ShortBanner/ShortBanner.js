@@ -1,27 +1,15 @@
-import Image from "next/image";
-import shortbanner from "../../assets/bannerImg/shortbanner.png";
-
-const ShortBanner = () => {
+const ShortBanner = ({ img, height, margin }) => {
   return (
     <div
-      className="my-10 w-full h-52"
+      className={`${margin} w-full ${height} `}
       style={{
-        backgroundImage: `url(${shortbanner.src})`,
+        backgroundImage: `url(${img.src})`,
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
-    >
-      {" "}
-      {/* <Image
-        className="w-full h-52 object-cover bg-fixed"
-        src={shortbanner}
-        alt="Next.js"
-        width={0}
-        height={0}
-      /> */}
-    </div>
+    ></div>
   );
 };
 

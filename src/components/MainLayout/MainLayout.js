@@ -2,6 +2,7 @@
 import NavbarCom from "../Navbar/NavbarCom";
 import DarkMode from "../DarkMode/DarkMode";
 import MobileNav from "../Navbar/MobileNav";
+import Footer from "../Footer/Footer";
 
 const MainLayout = ({ children }) => {
   return (
@@ -10,6 +11,7 @@ const MainLayout = ({ children }) => {
       <MobileNav></MobileNav>
       {children}
       <DarkMode></DarkMode>
+      <Footer />
     </div>
   );
 };
