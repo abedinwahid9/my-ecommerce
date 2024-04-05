@@ -12,10 +12,7 @@ const ShapeDesginOne = () => {
       >
         <defs>
           <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
-            <stop
-              stopColor="rgba(93.807, 182.463, 112.873, 1)"
-              offset="0%"
-            ></stop>
+            <stop stopColor="rgba(96, 189, 116, 1)" offset="0%"></stop>
             <stop stopColor="rgba(96, 189, 116, 1)" offset="100%"></stop>
           </linearGradient>
         </defs>

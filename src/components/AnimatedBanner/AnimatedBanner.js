@@ -13,7 +13,7 @@ const AnimatedBanner = () => {
         height={0}
         alt="animated img"
       />
-      <div className=" absolute -rotate-12 flex justify-center items-center">
+      <div className=" absolute  flex justify-center items-center">
         <Image
           className="w-72 h-72 animateImg"
           src={animateImg}
