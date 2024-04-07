@@ -1,18 +1,10 @@
 "use client";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-  Tooltip,
-  IconButton,
-} from "@material-tailwind/react";
+import { Card, CardBody, Typography, Button } from "@material-tailwind/react";
 import Image from "next/image";
 import pickle from "../../assets/pickle.jpg";
+import Link from "next/link";
 
-const ProductCard = () => {
+const ProductCard = ({ productData }) => {
   return (
     <Card className="w-full p-2 border-2 drop-shadow-sm dark:bg-black overflow-hidden dark:shadow-white">
       <div>
@@ -63,13 +55,15 @@ const ProductCard = () => {
         </Typography>
       </CardBody>
       <div>
-        <Button
-          size="lg"
-          fullWidth={true}
-          className="bg-optionalColor rounded-t-none text-secondaryColor text-sm font-semibold"
-        >
-          view details
-        </Button>
+        <Link href={`/products/${productData}`}>
+          <Button
+            size="lg"
+            fullWidth={true}
+            className="bg-optionalColor rounded-t-none text-secondaryColor text-sm font-semibold"
+          >
+            view details
+          </Button>
+        </Link>
       </div>
     </Card>
   );
