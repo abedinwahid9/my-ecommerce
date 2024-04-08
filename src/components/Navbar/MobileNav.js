@@ -5,6 +5,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import { IoIosContact } from "react-icons/io";
 import Cart from "../Cart/Cart";
 import styles from "./mobile.module.css";
+import Link from "next/link";
 
 const MobileNav = () => {
   return (
@@ -18,10 +19,14 @@ const MobileNav = () => {
           href="#"
           active
         >
-          <HiHome />
+          <Link href="/">
+            <HiHome />
+          </Link>
         </li>
         <li className={`p-4 rounded-3xl  text-2xl ${styles.shadow}`} href="#">
-          <SiHomeassistantcommunitystore />
+          <Link href="/all-category">
+            <SiHomeassistantcommunitystore />
+          </Link>
         </li>
         <li className={`p-4 rounded-3xl  text-2xl ${styles.shadow}`} href="#">
           <FaInfoCircle />
