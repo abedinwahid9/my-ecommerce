@@ -8,6 +8,7 @@ const Searchbar = () => {
         type="text"
         name=""
         id=""
+        placeholder="search..."
       />
       <CiSearch className="text-3xl text-white text-center" />
     </div>

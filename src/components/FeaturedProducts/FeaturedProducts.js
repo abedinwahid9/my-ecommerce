@@ -16,29 +16,46 @@ const FeaturedProducts = () => {
   const swiper = useRef(null);
   const handlePrev = () => {
     swiper.current.swiper.slidePrev();
-    console.log(swiper.current.swiper);
     if (swiper.current.swiper.activeIndex === 0) {
       setPrevBtnhide(true);
     }
-    if (
-      swiper.current.swiper.activeIndex ===
-      swiper.current.swiper.slides.length - 5
-    ) {
-      setNextBtnhide(false);
+    if (window.innerWidth < 768) {
+      console.log(swiper.current.swiper);
+      if (
+        swiper.current.swiper.activeIndex ===
+        swiper.current.swiper.slides.length - 2
+      ) {
+        setNextBtnhide(false);
+      }
+    } else {
+      if (
+        swiper.current.swiper.activeIndex ===
+        swiper.current.swiper.slides.length - 5
+      ) {
+        setNextBtnhide(false);
+      }
     }
   };
   const handleNext = () => {
     swiper.current.swiper.slideNext();
-    console.log(swiper.current.swiper);
+
     if (swiper.current.swiper.activeIndex > 0) {
       setPrevBtnhide(false);
     }
-
-    if (
-      swiper.current.swiper.activeIndex ===
-      swiper.current.swiper.slides.length - 4
-    ) {
-      setNextBtnhide(true);
+    if (window.innerWidth < 768) {
+      if (
+        swiper.current.swiper.activeIndex ===
+        swiper.current.swiper.slides.length - 1
+      ) {
+        setNextBtnhide(true);
+      }
+    } else {
+      if (
+        swiper.current.swiper.activeIndex ===
+        swiper.current.swiper.slides.length - 4
+      ) {
+        setNextBtnhide(true);
+      }
     }
   };
 
