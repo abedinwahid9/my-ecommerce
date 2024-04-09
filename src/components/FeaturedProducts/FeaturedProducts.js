@@ -14,13 +14,13 @@ const FeaturedProducts = () => {
   const [nextBtnhide, setNextBtnhide] = useState(false);
 
   const swiper = useRef(null);
+
   const handlePrev = () => {
     swiper.current.swiper.slidePrev();
     if (swiper.current.swiper.activeIndex === 0) {
       setPrevBtnhide(true);
     }
     if (window.innerWidth < 768) {
-      console.log(swiper.current.swiper);
       if (
         swiper.current.swiper.activeIndex ===
         swiper.current.swiper.slides.length - 2
