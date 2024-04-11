@@ -28,12 +28,17 @@ const MobileNav = () => {
             <SiHomeassistantcommunitystore />
           </Link>
         </li>
-        <li className={`p-4 rounded-3xl  text-2xl ${styles.shadow}`} href="#">
-          <FaInfoCircle />
-        </li>
         <li className={`p-1 rounded-3xl   ${styles.shadow}`} href="#">
-          <Cart />
+          <Link href="/mycart">
+            <Cart />
+          </Link>
         </li>
+        <li className={`p-4 rounded-3xl  text-2xl ${styles.shadow}`} href="#">
+          <Link href="/contact">
+            <FaInfoCircle />
+          </Link>
+        </li>
+
         <li className={`p-4 rounded-3xl  text-2xl ${styles.shadow}`} href="#">
           <IoIosContact />
         </li>
