@@ -54,7 +54,9 @@ const NavbarCom = () => {
             })}
           </ul>
         </div>
-        <Cart></Cart>
+        <Link href="/mycart">
+          <Cart></Cart>
+        </Link>
       </div>
     </div>
   );
