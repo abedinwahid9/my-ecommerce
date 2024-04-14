@@ -5,7 +5,7 @@ import ProductDetailsSlider from "@/components/ProductsDetails/ProductDetailsSli
 const page = ({ params }) => {
   return (
     <div className="container mx-auto my-10 px-5">
-      {/* <h2>products {params.productdetail}</h2> */}
+      <h2>products {params.productdetail}</h2>
       <div className="flex flex-col md:flex-row gap-10">
         <ProductDetailsSlider />
         <ProductDetails />

@@ -1,4 +1,4 @@
-import MainLayout from "@/components/MainLayout/MainLayout";
+import DarkMode from "@/components/DarkMode/DarkMode";
 import "./globals.css";
 import ThemeProviderTailwind from "@/components/ThemeProvider/ThemeProvider";
 
@@ -16,7 +16,8 @@ export default function RootLayout({ children }) {
         className={`${lobsterTwo.variable} ${lora.variable}  font-lora  dark:bg-black`}
       >
         <ThemeProviderTailwind>
-          <MainLayout>{children}</MainLayout>
+          <DarkMode></DarkMode>
+          {children}
         </ThemeProviderTailwind>
       </body>
     </html>
