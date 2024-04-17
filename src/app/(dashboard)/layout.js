@@ -1,5 +1,4 @@
 import SideBar from "@/components/DashBoard/SideBar/SideBar";
-import { lobsterTwo, lora } from "@/fonts/fonts";
 
 export const metadata = {
   title: "Create Next App",

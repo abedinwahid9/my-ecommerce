@@ -1,7 +1,12 @@
+"use client";
 import Link from "next/link";
 import style from "./sidebar.module.css";
+import { usePathname } from "next/navigation";
 
 const SideBar = () => {
+  const currentPath = usePathname();
+
+  console.log(currentPath);
   const navLink = [
     {
       name: "admin",
@@ -9,11 +14,19 @@ const SideBar = () => {
     },
     {
       name: "add product",
-      link: "/add-product",
+      link: "/admin/add-product",
     },
     {
       name: "all product",
-      link: "/all-product",
+      link: "/admin/all-product",
+    },
+    {
+      name: "sales product",
+      link: "/admin/sales-product",
+    },
+    {
+      name: "users",
+      link: "/admin/users",
     },
     {
       name: "home",
@@ -26,11 +39,16 @@ const SideBar = () => {
       style={{ height: "100vh" }}
       className="bg-primaryColor w-40 drop-shadow-2xl"
     >
-      <ul className="flex flex-col uppercase font-semibold py-3 gap-2 text-black">
+      <ul className="flex flex-col uppercase font-medium  py-3 px-2  text-black">
         {navLink.map((link, i) => {
           return (
-            <li className={`${style.shadow} p-2`} key={i}>
-              <Link href={link.link}>{link.name}</Link>
+            <li className={`${style.shadow} py-1`} key={i}>
+              <Link
+                className={currentPath === link.link ? "active" : ""}
+                href={link.link}
+              >
+                {link.name}
+              </Link>
             </li>
           );
         })}
