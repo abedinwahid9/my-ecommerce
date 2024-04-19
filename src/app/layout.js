@@ -3,6 +3,7 @@ import "./globals.css";
 import ThemeProviderTailwind from "@/components/ThemeProvider/ThemeProvider";
 
 import { lobsterTwo, lora } from "@/fonts/fonts";
+import StoreProvider from "@/lib/redux/store/StoreProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,10 +16,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${lobsterTwo.variable} ${lora.variable}  font-lora  dark:bg-black`}
       >
-        <ThemeProviderTailwind>
-          <DarkMode></DarkMode>
-          {children}
-        </ThemeProviderTailwind>
+        <StoreProvider>
+          <ThemeProviderTailwind>
+            <DarkMode></DarkMode>
+            {children}
+          </ThemeProviderTailwind>
+        </StoreProvider>
       </body>
     </html>
   );
