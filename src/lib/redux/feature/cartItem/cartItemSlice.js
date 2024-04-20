@@ -2,6 +2,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
   cart: [],
+  message: false,
 };
 
 const cartSlice = createSlice({
@@ -9,7 +10,12 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addCart: (state, { payload }) => {
-      state.cart.push(payload);
+      if (!state.cart.includes(payload)) {
+        state.cart.push(payload);
+        state.message = false;
+      } else {
+        state.message = true;
+      }
     },
   },
 });
