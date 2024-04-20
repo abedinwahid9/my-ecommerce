@@ -1,10 +1,18 @@
 "use client";
 
+import { addCart } from "@/lib/redux/feature/cartItem/cartItemSlice";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-const ProductDetails = () => {
+const ProductDetails = ({ findItem }) => {
   const [input, setInput] = useState(1);
-  const stock = 6;
+  const { id, name, details, price, stock } = findItem;
+
+  const dispatched = useDispatch();
+
+  const handleCart = (id) => {
+    dispatched(addCart(id));
+  };
 
   const handleInput = (e) => {
     setInput(e.target.value);
@@ -26,15 +34,12 @@ const ProductDetails = () => {
     <div className="flex flex-col gap-3">
       <div className="flex flex-col  gap-3 h-1/2">
         <h3 className="text-2xl font-bold dark:text-secondaryColor uppercase">
-          products name
+          {name}
         </h3>
         <hr />
-        <p className="text-base  dark:text-secondaryColor ">
-          Products details Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Ullam, excepturi.
-        </p>
+        <p className="text-base  dark:text-secondaryColor ">{details}</p>
         <p className="text-base font-bold dark:text-secondaryColor">
-          Price: 350
+          Price: {price} ৳
         </p>
       </div>
       <div className="flex flex-col gap-3">
@@ -65,7 +70,7 @@ const ProductDetails = () => {
         </div>
         <div>
           <p className="text-base font-bold dark:text-secondaryColor">
-            Totol Price: {350 * input}
+            Totol Price: {price * input}
           </p>
           <strong
             className={`${stock > 0 ? "text-secondaryColor" : "text-red-900"} `}
@@ -75,6 +80,9 @@ const ProductDetails = () => {
         </div>
       </div>
       <button
+        onClick={() => {
+          handleCart(id);
+        }}
         disabled={stock === 0}
         className="bg-secondaryColor disabled:opacity-75 rounded-sm uppercase text-optionalColor hover:text-secondaryColor font-bold py-3 hover:bg-optionalColor transition-all "
       >

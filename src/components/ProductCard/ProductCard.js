@@ -4,7 +4,8 @@ import Image from "next/image";
 import pickle from "../../assets/pickle.jpg";
 import Link from "next/link";
 
-const ProductCard = ({ productData }) => {
+const ProductCard = ({ product }) => {
+  const { id, name, details, price } = product;
   return (
     <Card className="w-full p-2 border-2 drop-shadow-sm dark:bg-black overflow-hidden dark:shadow-white">
       <div>
@@ -23,7 +24,7 @@ const ProductCard = ({ productData }) => {
             color="blue-gray"
             className="font-medium dark:text-white"
           >
-            Wooden House pickle
+            {name}
           </Typography>
           <Typography
             color="blue-gray"
@@ -45,17 +46,17 @@ const ProductCard = ({ productData }) => {
           </Typography>
         </div>
         <p color="gray" className="dark:text-white">
-          Enter a freshly updated and ...
+          {details.slice(0, 26)}...
         </p>
         <Typography
           className="pt-2 text-center text-base font-semibold dark:text-white"
           color="gray"
         >
-          Price: 300 ৳
+          Price: {price} ৳
         </Typography>
       </CardBody>
       <div>
-        <Link href={`/products/${productData}`}>
+        <Link href={`/products/${id}`}>
           <Button
             size="lg"
             fullWidth={true}

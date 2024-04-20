@@ -8,10 +8,13 @@ import ProductCard from "../ProductCard/ProductCard";
 import { useEffect, useRef, useState } from "react";
 import { GrFormNextLink } from "react-icons/gr";
 import { GrFormPreviousLink } from "react-icons/gr";
+import { useSelector } from "react-redux";
 
 const FeaturedProducts = () => {
   const [prevBtnhide, setPrevBtnhide] = useState(false);
   const [nextBtnhide, setNextBtnhide] = useState(false);
+
+  const allProducts = useSelector((state) => state.allProducts);
 
   const swiper = useRef(null);
 
@@ -97,10 +100,10 @@ const FeaturedProducts = () => {
           }}
           className="mySwiper "
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((card, i) => {
+          {allProducts.map((product, i) => {
             return (
               <SwiperSlide key={i}>
-                <ProductCard />
+                <ProductCard product={product} />
               </SwiperSlide>
             );
           })}

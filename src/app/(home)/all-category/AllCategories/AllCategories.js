@@ -4,9 +4,10 @@ import Searchbar from "@/components/Searchbar/Searchbar";
 import TabComponent from "@/components/TabComponent/TabComponent";
 import Title from "@/components/Title/Title";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const AllCategories = () => {
-  const productDatas = [1, 2, 3, 4, 5, 6, 7, 8];
+  const allProducts = useSelector((state) => state.allProducts);
   const [activeTab, setActiveTab] = useState("pickle jar");
   const data = [
     {
@@ -30,8 +31,8 @@ const AllCategories = () => {
         <Searchbar />
       </div>
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1  my-10 gap-5">
-        {productDatas.map((productData, i) => {
-          return <ProductCard productData={productData} key={i} />;
+        {allProducts.map((product, i) => {
+          return <ProductCard product={product} key={i} />;
         })}
       </div>
     </>
