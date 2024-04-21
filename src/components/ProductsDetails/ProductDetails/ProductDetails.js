@@ -10,8 +10,10 @@ const ProductDetails = ({ findItem }) => {
 
   const dispatched = useDispatch();
 
-  const handleCart = (id) => {
-    dispatched(addCart(id));
+  const totalPrice = price * input;
+
+  const handleCart = () => {
+    dispatched(addCart({ totalPrice, quantity: input, ...findItem }));
   };
 
   const handleInput = (e) => {
@@ -70,7 +72,7 @@ const ProductDetails = ({ findItem }) => {
         </div>
         <div>
           <p className="text-base font-bold dark:text-secondaryColor">
-            Totol Price: {price * input}
+            Totol Price: {totalPrice}
           </p>
           <strong
             className={`${stock > 0 ? "text-secondaryColor" : "text-red-900"} `}
@@ -81,7 +83,7 @@ const ProductDetails = ({ findItem }) => {
       </div>
       <button
         onClick={() => {
-          handleCart(id);
+          handleCart();
         }}
         disabled={stock === 0}
         className="bg-secondaryColor disabled:opacity-75 rounded-sm uppercase text-optionalColor hover:text-secondaryColor font-bold py-3 hover:bg-optionalColor transition-all "

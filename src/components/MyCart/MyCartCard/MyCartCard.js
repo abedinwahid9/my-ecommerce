@@ -1,28 +1,29 @@
 "use client";
 import Image from "next/image";
 import singlePic from "@/assets/pickle.jpg";
-import { useState } from "react";
+
 import { MdDelete } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  cartQuantityDecrement,
+  cartQuantityIncrement,
+  getTotal,
+  removeCart,
+} from "@/lib/redux/feature/cartItem/cartItemSlice";
 
-const MyCartCard = () => {
-  const [input, setInput] = useState(1);
-  const stock = 6;
+const MyCartCard = ({ product }) => {
+  const { id, name, stock, quantity, price } = product;
 
-  const handleInput = (e) => {
-    setInput(e.target.value);
-  };
+  const dispatched = useDispatch();
 
   const handleIncrement = () => {
-    if (input < stock) {
-      setInput(input + 1);
-    }
+    dispatched(cartQuantityIncrement(id));
   };
 
   const handleDecrement = () => {
-    if (input > 1) {
-      setInput(input - 1);
-    }
+    dispatched(cartQuantityDecrement(id));
   };
+
   return (
     <div className="flex justify-between flex-col gap-3 md:flex-row drop-shadow-sm  border-2  p-5 ">
       <div className="flex gap-5">
@@ -36,11 +37,11 @@ const MyCartCard = () => {
         <div className="flex flex-col justify-between">
           <div>
             <h3 className="md:text-xl text-sm font-bold dark:text-secondaryColor uppercase">
-              products name
+              {name}
             </h3>
 
             <p className="md:text-base text-sm font-bold dark:text-secondaryColor">
-              Price: 350
+              Price: {price}
             </p>
           </div>
           <div className="flex gap-2 ">
@@ -53,12 +54,12 @@ const MyCartCard = () => {
             </button>
             <input
               disabled
-              onChange={handleInput}
+              // onChange={handleInput}
               className="md:w-10 md:h-10 w-7 h-7 text-center focus:outline-none disabled:bg-white"
               type="number"
               name=""
               id=""
-              value={input}
+              value={quantity}
             />
             <button
               disabled={stock === 0}
@@ -73,9 +74,12 @@ const MyCartCard = () => {
 
       <div className="flex md:flex-col flex-row justify-between md:items-end items-start">
         <p className="text-base font-bold dark:text-secondaryColor">
-          Totol Price: {350 * input}
-        </p>{" "}
-        <MdDelete className="w-7 h-7 cursor-pointer" />
+          Totol Price: {price * quantity}
+        </p>
+        <MdDelete
+          onClick={() => dispatched(removeCart(id))}
+          className="w-7 h-7 cursor-pointer dark:text-red-500"
+        />
       </div>
     </div>
   );

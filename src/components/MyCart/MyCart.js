@@ -3,8 +3,21 @@ import Lottie from "lottie-react";
 import mycart from "./mycart.json";
 import Title from "../Title/Title";
 import MyCartCard from "./MyCartCard/MyCartCard";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getTotal } from "@/lib/redux/feature/cartItem/cartItemSlice";
 
 const MyCart = () => {
+  const allCartProducts = useSelector((state) => state.carts.cart);
+  const grandTotal = useSelector((state) => state.carts.grandTotalPrice);
+  const [deliverCharge, setDeliverCharge] = useState(300);
+
+  const dispatched = useDispatch();
+
+  useEffect(() => {
+    dispatched(getTotal());
+  }, [allCartProducts]);
+
   return (
     <>
       <div className="flex justify-center items-center">
@@ -19,13 +32,12 @@ const MyCart = () => {
       <div className="flex flex-col md:flex-row gap-5 md:my-10 my-5 ">
         <div className="md:w-2/3 w-full">
           <h3 className="my-3 font-lobsterTwo font-semibold text-xl dark:text-secondaryColor">
-            Total Cart Items: 6
+            Total Cart Items: {allCartProducts.length}
           </h3>
-          <div className="  flex flex-col gap-5">
-            <MyCartCard />
-            <MyCartCard />
-            <MyCartCard />
-            <MyCartCard />
+          <div className="flex flex-col gap-5">
+            {allCartProducts.map((product, i) => {
+              return <MyCartCard product={product} key={i} />;
+            })}
           </div>
         </div>
         <div className="md:w-1/3 w-full ">
@@ -48,10 +60,10 @@ const MyCart = () => {
                 <div>
                   <div>
                     <p className="text-base capitalize font-semibold dark:text-secondaryColor">
-                      ৳ 200
+                      ৳ {grandTotal}
                     </p>
                     <p className="text-base capitalize font-semibold dark:text-secondaryColor">
-                      ৳ 300
+                      ৳ {deliverCharge}
                     </p>
                   </div>
                 </div>
@@ -62,7 +74,7 @@ const MyCart = () => {
                   Total:
                 </p>
                 <p className="text-base capitalize font-semibold dark:text-secondaryColor">
-                  ৳ 600
+                  ৳ {grandTotal + deliverCharge}
                 </p>
               </div>
             </div>
