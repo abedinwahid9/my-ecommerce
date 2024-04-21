@@ -35,9 +35,17 @@ const MyCart = () => {
             Total Cart Items: {allCartProducts.length}
           </h3>
           <div className="flex flex-col gap-5">
-            {allCartProducts.map((product, i) => {
-              return <MyCartCard product={product} key={i} />;
-            })}
+            {allCartProducts.length === 0 ? (
+              <div className="flex my-5">
+                <h2 className="text-2xl font-bold font-lobsterTwo uppercase text-red-500">
+                  no cart products
+                </h2>
+              </div>
+            ) : (
+              allCartProducts.map((product, i) => {
+                return <MyCartCard product={product} key={i} />;
+              })
+            )}
           </div>
         </div>
         <div className="md:w-1/3 w-full ">
