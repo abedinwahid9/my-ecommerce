@@ -18,7 +18,7 @@ const SideBar = () => {
     },
     {
       name: "all product",
-      link: "/admin/all-product",
+      link: "/admin/all-products",
     },
     {
       name: "sales product",

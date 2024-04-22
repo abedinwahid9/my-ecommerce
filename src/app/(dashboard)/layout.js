@@ -9,7 +9,12 @@ export default function RootLayout({ children }) {
   return (
     <div className={`dark:bg-black flex w-full max-h-screen`}>
       <SideBar />
-      {children}
+      <div
+        className="flex-1 h-full w-full
+      "
+      >
+        {children}
+      </div>
     </div>
   );
 }
