@@ -1,5 +1,4 @@
 import { Input } from "@material-tailwind/react";
-import "./input.css";
 
 const InputField = ({ inputName, type }) => {
   return (
