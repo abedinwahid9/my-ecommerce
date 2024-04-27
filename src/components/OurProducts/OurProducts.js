@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Title from "../Title/Title";
+import Title from "../Share/Title/Title";
 import ProductCard from "../ProductCard/ProductCard";
 import { useSelector } from "react-redux";
 

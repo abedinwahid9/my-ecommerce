@@ -1,4 +1,5 @@
 import Table from "@/components/DashBoard/Table/Table";
+import React from "react";
 
 const page = () => {
   const tableHead = ["product", "price", "quantity", "edit / delete"];
@@ -216,10 +217,9 @@ const page = () => {
     },
   ];
   return (
-    <div className="flex flex-col ">
-      <div className="flex-1">
-        <Table tableHead={tableHead} data={data} />
-      </div>
+    <div>
+      <h2>sales products</h2>
+      <Table tableHead={tableHead} data={data} />
     </div>
   );
 };

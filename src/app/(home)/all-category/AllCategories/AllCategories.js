@@ -2,7 +2,7 @@
 import ProductCard from "@/components/ProductCard/ProductCard";
 import Searchbar from "@/components/Searchbar/Searchbar";
 import TabComponent from "@/components/TabComponent/TabComponent";
-import Title from "@/components/Title/Title";
+import Title from "@/components/Share/Title/Title";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 

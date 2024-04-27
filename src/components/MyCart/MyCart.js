@@ -1,7 +1,7 @@
 "use client";
 import Lottie from "lottie-react";
 import mycart from "./mycart.json";
-import Title from "../Title/Title";
+import Title from "../Share/Title/Title";
 import MyCartCard from "./MyCartCard/MyCartCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";

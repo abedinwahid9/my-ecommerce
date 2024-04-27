@@ -1,5 +1,5 @@
 "use client";
-import Title from "../Title/Title";
+import Title from "../Share/Title/Title";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles

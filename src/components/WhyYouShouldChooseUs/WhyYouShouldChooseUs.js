@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import Title from "../Title/Title";
+import Title from "../Share/Title/Title";
 import Image from "next/image";
 import image1 from "@/assets/whyyoushouldchooseus/img1.png";
 import image2 from "@/assets/whyyoushouldchooseus/img2.png";

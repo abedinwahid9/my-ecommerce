@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "../Title/Title";
+import Title from "../Share/Title/Title";
 import single from "../../assets/categories/single.jpg";
 import packageImg from "../../assets/categories/package.jpg";
 import Image from "next/image";
