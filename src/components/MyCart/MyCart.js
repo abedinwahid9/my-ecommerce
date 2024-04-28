@@ -6,6 +6,7 @@ import MyCartCard from "./MyCartCard/MyCartCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getTotal } from "@/lib/redux/feature/cartItem/cartItemSlice";
+import Button from "@/components/Share/Button/Button";
 
 const MyCart = () => {
   const allCartProducts = useSelector((state) => state.carts.cart);
@@ -87,12 +88,8 @@ const MyCart = () => {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <button className="text-lg py-2 rounded-sm px-4 bg-optionalColor font-semibold uppercase">
-                continue shopping
-              </button>
-              <button className="text-lg py-2 rounded-sm px-4 bg-red-500 font-semibold uppercase">
-                cancle
-              </button>
+              <Button color="bg-optionalColor" text="continue shopping" />
+              <Button color="bg-red-500" text="cancle" />
             </div>
           </div>
         </div>

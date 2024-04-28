@@ -1,0 +1,10 @@
+/* @media (prefers-color-scheme: dark) {
+  #selected > div > label {
+    color: azure;
+  }
+} */
+@media (prefers-color-scheme: light) {
+  #selected > div > label {
+    color: black;
+  }
+}
