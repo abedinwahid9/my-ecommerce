@@ -3,25 +3,24 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoCloudUpload } from "react-icons/io5";
 
-const UploadImg = () => {
+const UploadImg = ({ uploadLimit, imgData }) => {
   const [imgShow, setImgShow] = useState([]);
   const [uploadShow, setUploadShow] = useState(true);
 
   useEffect(() => {
-    if (imgShow.length === 3) {
+    if (imgShow.length === +uploadLimit) {
       setUploadShow(false);
     }
-  }, [imgShow]);
-
-  console.log(uploadShow);
+  }, [imgShow, uploadLimit]);
 
   const handleImg = (e) => {
-    if (imgShow.length === 3) {
+    if (imgShow.length === +uploadLimit) {
       return;
     }
     const files = Array.from(e.target.files);
     const urls = files.map((file) => URL.createObjectURL(file));
     setImgShow([...imgShow, ...urls]);
+    imgData([...imgShow, ...urls]);
   };
 
   return (

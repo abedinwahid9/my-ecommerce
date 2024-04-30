@@ -17,6 +17,10 @@ const SideBar = () => {
       link: "/admin/add-product",
     },
     {
+      name: "add category",
+      link: "/admin/add-category",
+    },
+    {
       name: "all product",
       link: "/admin/all-products",
     },
