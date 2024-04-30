@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import UploadImg from "@/components/DashBoard/UploadImg/UploadImg";
 import Button from "@/components/Share/Button/Button";

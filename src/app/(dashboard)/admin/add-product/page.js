@@ -14,7 +14,7 @@ const page = () => {
     const productData = { ...data, imgData };
     const res = await fetch("/api/products", {
       method: "POST",
-      body: JSON.stringify({ productData }),
+      body: JSON.stringify({ ...productData }),
       headers: {
         "content-type": "application/json",
       },
