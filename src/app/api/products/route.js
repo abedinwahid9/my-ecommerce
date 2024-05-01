@@ -26,6 +26,6 @@ export async function POST(req) {
 }
 
 // Closing the database connection after use
-export async function closeDatabase() {
-  await client.close();
-}
+// export async function closeDatabase() {
+//   await client.close();
+// }
