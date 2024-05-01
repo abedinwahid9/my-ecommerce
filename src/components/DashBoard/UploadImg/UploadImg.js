@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoCloudUpload } from "react-icons/io5";
@@ -13,14 +14,25 @@ const UploadImg = ({ uploadLimit, imgData }) => {
     }
   }, [imgShow, uploadLimit]);
 
-  const handleImg = (e) => {
+  const handleImg = async (e) => {
+    const imgDataS = e.target.files[0];
     if (imgShow.length === +uploadLimit) {
       return;
     }
+
     const files = Array.from(e.target.files);
     const urls = files.map((file) => URL.createObjectURL(file));
     setImgShow([...imgShow, ...urls]);
-    imgData([...imgShow, ...urls]);
+
+    const formData = new FormData();
+    formData.append("file", imgDataS);
+    formData.append("upload_preset", "pickle_BD");
+
+    const res = await axios.post(
+      "https://api.cloudinary.com/v1_1/dq19zuw4z/image/upload",
+      formData
+    );
+    imgData((prevImg) => [...prevImg, res.data.url]);
   };
 
   return (

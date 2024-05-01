@@ -17,8 +17,9 @@ export async function GET() {
 export async function POST(req) {
   try {
     const newPickle = await req.json();
+    console.log(newPickle);
     const result = await pickleCollection.insertOne(newPickle);
-    return NextResponse.json(result.ops[0], { status: 201 }); // 201 Created
+    return NextResponse.json(result, { status: 201 });
   } catch (error) {
     console.error("Error creating pickle:", error);
     return NextResponse.error(new Error("Failed to create pickle"), 500);
@@ -26,6 +27,6 @@ export async function POST(req) {
 }
 
 // Closing the database connection after use
-// export async function closeDatabase() {
-//   await client.close();
-// }
+export async function closeDatabase() {
+  await client.close();
+}
