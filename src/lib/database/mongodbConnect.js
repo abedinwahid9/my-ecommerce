@@ -1,5 +1,9 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
-const uri = process.env.MONGODB_URI;
+
+const userName = process.env.USER_NAME;
+const userPassword = process.env.PASSWORD_SECRET;
+
+const uri = `mongodb+srv://${userName}:${userPassword}@cluster0.os721gq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 if (!uri) {
   throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
