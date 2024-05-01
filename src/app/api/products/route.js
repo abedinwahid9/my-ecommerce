@@ -1,10 +1,10 @@
-import { clientPromise } from "@/lib/database/mongodbConnect";
+import clientPromise from "@/lib/database/mongodbConnect";
 import { NextResponse } from "next/server";
 
 const client = clientPromise;
 const pickleCollection = client.db("pickleDB").collection("pickleCollection");
 
-export async function getPickles() {
+export async function GET() {
   try {
     const result = await pickleCollection.find().toArray();
     return NextResponse.json(result);
@@ -14,7 +14,7 @@ export async function getPickles() {
   }
 }
 
-export async function createPickle(req) {
+export async function POST(req) {
   try {
     const newPickle = await req.json();
     const result = await pickleCollection.insertOne(newPickle);
