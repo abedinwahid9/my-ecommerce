@@ -5,7 +5,6 @@ import Title from "@/components/Share/Title/Title";
 import UploadImg from "@/components/DashBoard/UploadImg/UploadImg";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import useAxiosPublic from "@/hooks/useAxiosPublic/useAxiosPublic";
 import axios from "axios";
 
 const AddProduct = () => {
@@ -22,7 +21,7 @@ const AddProduct = () => {
         { ...productData },
         {
           headers: {
-            "Content-Type": "multi/json",
+            "Content-Type": "multipart/json",
           },
         }
       );

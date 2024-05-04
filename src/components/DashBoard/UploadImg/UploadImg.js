@@ -29,7 +29,7 @@ const UploadImg = ({ uploadLimit, imgData }) => {
     formData.append("upload_preset", "pickle_BD");
 
     const res = await axios.post(
-      "https://api.cloudinary.com/v1_1/dq19zuw4z/image/upload",
+      `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINAY_CLOUD_NAME}/image/upload`,
       formData
     );
     imgData((prevImg) => [...prevImg, res.data.url]);

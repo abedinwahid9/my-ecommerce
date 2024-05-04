@@ -3,6 +3,8 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 const userName = process.env.USER_NAME;
 const userPassword = process.env.PASSWORD_SECRET;
 
+console.log(userName, userPassword);
+
 const uri = `mongodb+srv://${userName}:${userPassword}@cluster0.os721gq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 if (!uri) {
