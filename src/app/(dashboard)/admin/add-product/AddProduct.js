@@ -4,12 +4,21 @@ import InputField from "@/components/Share/Input/InputField";
 import Title from "@/components/Share/Title/Title";
 import UploadImg from "@/components/DashBoard/UploadImg/UploadImg";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 const AddProduct = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [imgData, setImgData] = useState([]);
+  const [imgShow, setImgShow] = useState([]);
+  const [uploadLimit, setUploadLimit] = useState(3);
+  const [uploadShow, setUploadShow] = useState(true);
+
+  useEffect(() => {
+    if (imgShow.length === uploadLimit) {
+      setUploadShow(false);
+    }
+  }, [imgShow, setImgShow, uploadLimit]);
 
   const onSubmit = async (data) => {
     const productData = { ...data, imgData };
@@ -26,7 +35,11 @@ const AddProduct = () => {
         }
       );
 
-      console.log(res.data);
+      if (res.data.acknowledged) {
+        reset();
+        setImgShow([]);
+        setUploadShow(true);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -85,7 +98,13 @@ const AddProduct = () => {
               inputName="Stock"
             />
           </div>
-          <UploadImg imgData={setImgData} uploadLimit="3" />
+          <UploadImg
+            uploadShow={uploadShow}
+            imgShow={imgShow}
+            setImgShow={setImgShow}
+            imgData={setImgData}
+            uploadLimit="3"
+          />
         </div>
         <Button
           type="submit"

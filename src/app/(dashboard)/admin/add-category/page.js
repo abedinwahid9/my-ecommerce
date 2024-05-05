@@ -1,23 +1,57 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
+import CategoryTable from "@/components/DashBoard/CategoryTable/CategoryTable";
 import UploadImg from "@/components/DashBoard/UploadImg/UploadImg";
 import Button from "@/components/Share/Button/Button";
 import InputField from "@/components/Share/Input/InputField";
 import Title from "@/components/Share/Title/Title";
+import axios from "axios";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const page = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [imgData, setImgData] = useState([]);
+  const [imgShow, setImgShow] = useState([]);
+  const [uploadLimit, setUploadLimit] = useState(1);
+  const [uploadShow, setUploadShow] = useState(true);
 
-  const onSubmit = (data) => {
-    console.log({ ...data, imgData });
+  useEffect(() => {
+    if (imgShow.length === uploadLimit) {
+      setUploadShow(false);
+    }
+  }, [imgShow, setImgShow, uploadLimit]);
+
+  const onSubmit = async (data) => {
+    try {
+      // Combine form data with imgData
+      const categoryData = { ...data, imgData };
+      console.log(categoryData);
+
+      // Send POST request to backend
+      const res = await axios.post(
+        "/api/categories",
+        { ...categoryData },
+        {
+          headers: {
+            "Content-Type": "application/json", // Corrected content type
+          },
+        }
+      );
+
+      if (res.data.acknowledged) {
+        reset();
+        setImgShow([]);
+        setUploadShow(true);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
   return (
     <div className="py-10 px-5">
-      <Title title="add product" />
+      <Title title="add category" />
 
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -29,7 +63,13 @@ const page = () => {
           type="text"
           inputName="Product Category"
         />
-        <UploadImg imgData={setImgData} uploadLimit="1" />
+        <UploadImg
+          uploadShow={uploadShow}
+          imgShow={imgShow}
+          setImgShow={setImgShow}
+          imgData={setImgData}
+          uploadLimit={uploadLimit}
+        />
         <Button
           type="submit"
           color="bg-optionalColor"
@@ -37,6 +77,9 @@ const page = () => {
           text="add category"
         />
       </form>
+      <div>
+        <CategoryTable />
+      </div>
     </div>
   );
 };

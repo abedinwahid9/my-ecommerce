@@ -1,22 +1,19 @@
 "use client";
 import axios from "axios";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+
 import { IoCloudUpload } from "react-icons/io5";
 
-const UploadImg = ({ uploadLimit, imgData }) => {
-  const [imgShow, setImgShow] = useState([]);
-  const [uploadShow, setUploadShow] = useState(true);
-
-  useEffect(() => {
-    if (imgShow.length === +uploadLimit) {
-      setUploadShow(false);
-    }
-  }, [imgShow, uploadLimit]);
-
+const UploadImg = ({
+  uploadLimit,
+  imgData,
+  imgShow,
+  setImgShow,
+  uploadShow,
+}) => {
   const handleImg = async (e) => {
     const imgDataS = e.target.files[0];
-    if (imgShow.length === +uploadLimit) {
+    if (imgShow.length === uploadLimit) {
       return;
     }
 
