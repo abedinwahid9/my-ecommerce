@@ -6,6 +6,7 @@ import UploadImg from "@/components/DashBoard/UploadImg/UploadImg";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DisableButton from "@/components/Share/DisableButton/DisableButton";
 
 const AddProduct = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -74,6 +75,7 @@ const AddProduct = () => {
           <div>
             <div class="relative w-full ">
               <textarea
+                required
                 {...register("itemDescription")}
                 class="peer min-h-[100px]  w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-base font-normal text-blue-gray-700 dark:text-white  outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=""
@@ -106,12 +108,20 @@ const AddProduct = () => {
             uploadLimit="3"
           />
         </div>
-        <Button
-          type="submit"
-          color="bg-optionalColor"
-          width="w-full"
-          text="add product"
-        />
+        {imgData.length === 0 ? (
+          <DisableButton
+            color="bg-optionalColor"
+            width="w-full"
+            text="add category"
+          />
+        ) : (
+          <Button
+            type="submit"
+            color="bg-optionalColor"
+            width="w-full"
+            text="add category"
+          />
+        )}
       </form>
     </div>
   );

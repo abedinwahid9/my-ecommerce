@@ -10,6 +10,7 @@ import {
   getTotal,
   removeCart,
 } from "@/lib/redux/feature/cartItem/cartItemSlice";
+import DeleteBtn from "@/components/Share/DeleteBtn/DeleteBtn";
 
 const MyCartCard = ({ product }) => {
   const { id, name, stock, quantity, price } = product;
@@ -76,10 +77,10 @@ const MyCartCard = ({ product }) => {
         <p className="text-base font-bold dark:text-secondaryColor">
           Totol Price: {price * quantity}
         </p>
-        <MdDelete
-          onClick={() => dispatched(removeCart(id))}
-          className="w-7 h-7 cursor-pointer dark:text-red-500"
-        />
+        <div onClick={() => dispatched(removeCart(id))}>
+          {" "}
+          <DeleteBtn />
+        </div>
       </div>
     </div>
   );

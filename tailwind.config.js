@@ -23,6 +23,7 @@ module.exports = withMT({
       primaryColor: "#60BD74",
       secondaryColor: "#04A956",
       optionalColor: "#FBDB66",
+      error: "#F44336",
     },
   },
   darkMode: "selector",

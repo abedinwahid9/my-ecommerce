@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 const SideBar = () => {
   const currentPath = usePathname();
 
-  console.log(currentPath);
   const navLink = [
     {
       name: "admin",
@@ -41,7 +40,7 @@ const SideBar = () => {
   return (
     <div
       style={{ height: "100vh" }}
-      className="bg-primaryColor w-48 drop-shadow-2xl"
+      className="bg-primaryColor w-48 drop-shadow-2xl "
     >
       <ul className="flex flex-col uppercase font-medium  py-3 px-2  text-black">
         {navLink.map((link, i) => {
