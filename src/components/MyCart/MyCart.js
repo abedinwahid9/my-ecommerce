@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getTotal } from "@/lib/redux/feature/cartItem/cartItemSlice";
 import Button from "@/components/Share/Button/Button";
+import NoItemFound from "../Share/NoItemFound/NoItemFound";
 
 const MyCart = () => {
   const allCartProducts = useSelector((state) => state.carts.cart);
@@ -37,11 +38,7 @@ const MyCart = () => {
           </h3>
           <div className="flex flex-col gap-5">
             {allCartProducts.length === 0 ? (
-              <div className="flex my-5">
-                <h2 className="text-2xl font-bold font-lobsterTwo uppercase text-red-500">
-                  no cart products
-                </h2>
-              </div>
+              <NoItemFound text="no cart products" />
             ) : (
               allCartProducts.map((product, i) => {
                 return <MyCartCard product={product} key={i} />;

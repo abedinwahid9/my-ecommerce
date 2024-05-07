@@ -1,6 +1,5 @@
 "use client";
 import { Tabs, TabsHeader, Tab } from "@material-tailwind/react";
-import { useState } from "react";
 
 const TabComponent = ({ data, activeTab, setActiveTab }) => {
   return (
@@ -12,18 +11,18 @@ const TabComponent = ({ data, activeTab, setActiveTab }) => {
             "bg-transparent dark:border-secondaryColor border-b-2 border-gray-900 shadow-none rounded-none",
         }}
       >
-        {data.map(({ label, value }) => (
+        {data?.map(({ categoryName, _id }) => (
           <Tab
-            key={value}
-            value={value}
-            onClick={() => setActiveTab(value)}
+            key={_id}
+            value={categoryName}
+            onClick={() => setActiveTab(categoryName)}
             className={`dark:text-white md:text-lg text-sm ${
-              activeTab === value
+              activeTab === categoryName
                 ? "text-gray-900 dark:text-secondaryColor"
                 : ""
             } `}
           >
-            {label}
+            {categoryName}
           </Tab>
         ))}
       </TabsHeader>

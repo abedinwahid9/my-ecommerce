@@ -8,7 +8,7 @@ const initialState = [
     price: "350",
     rating: 4.5,
     stock: 5,
-    category: "single jar",
+    category: "single",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const initialState = [
     price: "450",
     rating: 4.5,
     stock: 5,
-    category: "single jar",
+    category: "single",
   },
   {
     id: 3,
@@ -44,11 +44,11 @@ const initialState = [
     price: "480",
     rating: 4.5,
     stock: 5,
-    category: "single jar",
+    category: "single",
   },
   {
     id: 6,
-    name: "mango 4",
+    name: "mango 5",
     details: "mango,mustard oil,sweet and sour combination",
     price: "300",
     rating: 4.5,
@@ -57,12 +57,12 @@ const initialState = [
   },
   {
     id: 7,
-    name: "mango 4",
+    name: "mango 6",
     details: "mango,mustard oil,sweet and sour combination",
     price: "500",
     rating: 4.5,
     stock: 5,
-    category: "single jar",
+    category: "single",
   },
 ];
 
