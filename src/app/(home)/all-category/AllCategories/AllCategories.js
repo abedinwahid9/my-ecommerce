@@ -7,9 +7,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { categoryDatas } from "@/lib/redux/feature/allCategory/allCategorySlice";
 import NoItemFound from "@/components/Share/NoItemFound/NoItemFound";
+import { productFetch } from "@/lib/redux/feature/allProducts/allProductsSlice";
 
 const AllCategories = () => {
-  const allProducts = useSelector((state) => state.allProducts);
+  const { allProducts } = useSelector((state) => state.allProducts);
   const [activeTab, setActiveTab] = useState("single");
 
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const AllCategories = () => {
 
   useEffect(() => {
     dispatch(categoryDatas());
+    dispatch(productFetch());
   }, [dispatch]);
 
   const datas = allProducts?.filter(

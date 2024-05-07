@@ -5,7 +5,8 @@ import pickle from "../../assets/pickle.jpg";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
-  const { id, name, details, price } = product;
+  console.log(product);
+  const { _id, productName, itemDescription, price } = product;
   return (
     <Card className="w-full p-2 border-2 drop-shadow-sm dark:bg-black overflow-hidden dark:shadow-white">
       <div>
@@ -24,7 +25,7 @@ const ProductCard = ({ product }) => {
             color="blue-gray"
             className="font-medium dark:text-white"
           >
-            {name}
+            {productName}
           </Typography>
           <Typography
             color="blue-gray"
@@ -46,7 +47,7 @@ const ProductCard = ({ product }) => {
           </Typography>
         </div>
         <p color="gray" className="dark:text-white">
-          {details.slice(0, 26)}...
+          {itemDescription.slice(0, 26)}...
         </p>
         <Typography
           className="pt-2 text-center text-base font-semibold dark:text-white"
@@ -56,7 +57,7 @@ const ProductCard = ({ product }) => {
         </Typography>
       </CardBody>
       <div>
-        <Link href={`/products/${id}`}>
+        <Link href={`/products/${_id}`}>
           <Button
             size="lg"
             fullWidth={true}

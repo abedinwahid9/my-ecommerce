@@ -1,76 +1,34 @@
-const { createSlice } = require("@reduxjs/toolkit");
+import axios from "axios";
 
-const initialState = [
-  {
-    id: 1,
-    name: "mango",
-    details: "mango,mustard oil,sweet and sour combination",
-    price: "350",
-    rating: 4.5,
-    stock: 5,
-    category: "single",
-  },
-  {
-    id: 2,
-    name: "mango 1",
-    details: "mango,mustard oil,sweet and sour combination",
-    price: "450",
-    rating: 4.5,
-    stock: 5,
-    category: "single",
-  },
-  {
-    id: 3,
-    name: "mango 2",
-    details: "mango,mustard oil,sweet and sour combination",
-    price: "100",
-    rating: 4.5,
-    stock: 5,
-    category: "package",
-  },
-  {
-    id: 4,
-    name: "mango 3",
-    details: "mango,mustard oil,sweet and sour combination",
-    price: "320",
-    rating: 4.5,
-    stock: 5,
-    category: "package",
-  },
-  {
-    id: 5,
-    name: "mango 4",
-    details: "mango,mustard oil,sweet and sour combination",
-    price: "480",
-    rating: 4.5,
-    stock: 5,
-    category: "single",
-  },
-  {
-    id: 6,
-    name: "mango 5",
-    details: "mango,mustard oil,sweet and sour combination",
-    price: "300",
-    rating: 4.5,
-    stock: 0,
-    category: "package",
-  },
-  {
-    id: 7,
-    name: "mango 6",
-    details: "mango,mustard oil,sweet and sour combination",
-    price: "500",
-    rating: 4.5,
-    stock: 5,
-    category: "single",
-  },
-];
+const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
+
+export const productFetch = createAsyncThunk("productFetch", async () => {
+  const res = await axios.get("/api/products");
+  return res.data;
+});
+
+const initialState = {
+  isLoading: false,
+  allProducts: null,
+  error: false,
+};
 
 const allProductsSlice = createSlice({
   name: "allProductsItem",
   initialState,
+  extraReducers: (builder) => {
+    builder.addCase(productFetch.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(productFetch.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.allProducts = payload;
+    });
+    builder.addCase(productFetch.rejected, (state, action) => {
+      state.error = true;
+    });
+  },
   reducers: {},
 });
 
-// export {} = allProductsSlice.actions
 export default allProductsSlice.reducer;
