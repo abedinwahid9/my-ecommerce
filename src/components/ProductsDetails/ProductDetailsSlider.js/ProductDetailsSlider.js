@@ -12,8 +12,14 @@ import pickle from "@/assets/categories/single.jpg";
 
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
-const ProductDetailsSlider = () => {
+const ProductDetailsSlider = ({ findItem, isLoading }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+  const { imgData } = findItem;
+
+  if (isLoading) {
+    return <p>loading...</p>;
+  }
 
   return (
     <div className="md:w-1/2 w-full">

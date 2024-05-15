@@ -5,16 +5,15 @@ import ProductDetailsSlider from "@/components/ProductsDetails/ProductDetailsSli
 import { useSelector } from "react-redux";
 
 const ProductDetail = ({ params }) => {
-  const allProducts = useSelector((state) => state.allProducts);
+  const { productdetail } = params;
+  const { isLoading, allProducts } = useSelector((state) => state.allProducts);
+  const findItem = allProducts?.find((item) => item._id === productdetail);
 
-  const findItem = allProducts.find(
-    (item) => item.id === +params.productdetail
-  );
   return (
     <>
       <div className="flex flex-col md:flex-row gap-10">
-        <ProductDetailsSlider />
-        <ProductDetails findItem={findItem} />
+        <ProductDetailsSlider findItem={findItem} isLoading={isLoading} />
+        <ProductDetails findItem={findItem} isLoading={isLoading} />
       </div>
       <OurProducts />
     </>

@@ -5,7 +5,6 @@ import pickle from "../../assets/pickle.jpg";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
-  console.log(product);
   const { _id, productName, itemDescription, price } = product;
   return (
     <Card className="w-full p-2 border-2 drop-shadow-sm dark:bg-black overflow-hidden dark:shadow-white">

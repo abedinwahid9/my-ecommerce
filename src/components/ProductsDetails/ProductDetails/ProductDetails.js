@@ -1,14 +1,19 @@
-"use client";
-
-import { addCart } from "@/lib/redux/feature/cartItem/cartItemSlice";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 
-const ProductDetails = ({ findItem }) => {
+const ProductDetails = ({ findItem, isLoading }) => {
   const [input, setInput] = useState(1);
-  const { id, name, details, price, stock } = findItem;
 
-  const dispatched = useDispatch();
+  // Check if allProducts is loading or empty
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  // Check if findItem is undefined
+  if (!findItem) {
+    return <p>Product not found</p>;
+  }
+
+  const { productName, itemDescription, price, stock, imgData } = findItem;
 
   const totalPrice = price * input;
 
@@ -34,12 +39,12 @@ const ProductDetails = ({ findItem }) => {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex flex-col  gap-3 h-1/2">
+      <div className="flex flex-col gap-3 h-1/2">
         <h3 className="text-2xl font-bold dark:text-secondaryColor uppercase">
-          {name}
+          {productName}
         </h3>
         <hr />
-        <p className="text-base  dark:text-secondaryColor ">{details}</p>
+        <p className="text-base dark:text-secondaryColor">{itemDescription}</p>
         <p className="text-base font-bold dark:text-secondaryColor">
           Price: {price} ৳
         </p>
@@ -72,21 +77,19 @@ const ProductDetails = ({ findItem }) => {
         </div>
         <div>
           <p className="text-base font-bold dark:text-secondaryColor">
-            Totol Price: {totalPrice}
+            Total Price: {totalPrice}
           </p>
           <strong
             className={`${stock > 0 ? "text-secondaryColor" : "text-red-900"} `}
           >
-            stock : {stock > 0 ? stock : "Out"}
+            Stock: {stock > 0 ? stock : "Out"}
           </strong>
         </div>
       </div>
       <button
-        onClick={() => {
-          handleCart();
-        }}
+        onClick={handleCart}
         disabled={stock === 0}
-        className="bg-secondaryColor disabled:opacity-75 rounded-sm uppercase text-optionalColor hover:text-secondaryColor font-bold py-3 hover:bg-optionalColor transition-all "
+        className="bg-secondaryColor disabled:opacity-75 rounded-sm uppercase text-optionalColor hover:text-secondaryColor font-bold py-3 hover:bg-optionalColor transition-all"
       >
         Add to cart
       </button>
