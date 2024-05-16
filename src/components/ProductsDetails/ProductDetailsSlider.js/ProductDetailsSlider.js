@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -10,16 +8,22 @@ import "swiper/css/thumbs";
 import Image from "next/image";
 import pickle from "@/assets/categories/single.jpg";
 
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+// Import Swiper core and required modules
+import SwiperCore, { FreeMode, Navigation, Thumbs } from "swiper/core";
+
+// Initialize Swiper core
+SwiperCore.use([FreeMode, Navigation, Thumbs]);
 
 const ProductDetailsSlider = ({ findItem, isLoading }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-  const { imgData } = findItem;
-
   if (isLoading) {
     return <p>loading...</p>;
   }
+
+  const { imgData } = findItem;
+
+  console.log(imgData);
 
   return (
     <div className="md:w-1/2 w-full">
@@ -32,45 +36,22 @@ const ProductDetailsSlider = ({ findItem, isLoading }) => {
         spaceBetween={0}
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        <SwiperSlide>
-          <Image
-            className="w-full h-full"
-            width={0}
-            height={0}
-            src={pickle}
-            alt="productslider"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="w-full h-full"
-            width={0}
-            height={0}
-            src={pickle}
-            alt="productslider"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="w-full h-full"
-            width={0}
-            height={0}
-            src={pickle}
-            alt="productslider"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="w-full h-full"
-            width={0}
-            height={0}
-            src={pickle}
-            alt="productslider"
-          />
-        </SwiperSlide>
+        {imgData?.map((img, i) => (
+          <SwiperSlide
+            key={i}
+            style={{ height: "360px" }}
+            className="relative w-full"
+          >
+            <Image
+              src={img}
+              alt="category"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -79,44 +60,19 @@ const ProductDetailsSlider = ({ findItem, isLoading }) => {
         slidesPerView={3}
         freeMode={true}
         watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper h-28"
       >
         <SwiperSlide>
-          <Image
-            className="w-full h-full"
-            width={0}
-            height={0}
-            src={pickle}
-            alt="productslider"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="w-full h-full"
-            width={0}
-            height={0}
-            src={pickle}
-            alt="productslider"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="w-full h-full"
-            width={0}
-            height={0}
-            src={pickle}
-            alt="productslider"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="w-full h-full"
-            width={0}
-            height={0}
-            src={pickle}
-            alt="productslider"
-          />
+          {imgData?.map((img, i) => (
+            <SwiperSlide key={i} className="relative w-full">
+              <Image
+                src={img}
+                alt="category"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </SwiperSlide>
+          ))}
         </SwiperSlide>
       </Swiper>
     </div>

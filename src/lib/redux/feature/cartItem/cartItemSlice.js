@@ -11,7 +11,8 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addCart: (state, { payload }) => {
-      const check = state.cart.find((item) => item.id === payload.id);
+      const check = state.cart.find((item) => item._id === payload._id);
+
       if (check) {
         state.message = true;
         console.log("already add this products");
