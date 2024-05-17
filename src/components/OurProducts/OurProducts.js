@@ -2,12 +2,14 @@
 import React, { useEffect } from "react";
 import Title from "../Share/Title/Title";
 import ProductCard from "../ProductCard/ProductCard";
-import { useDispatch, useSelector } from "react-redux";
 import { productFetch } from "@/lib/redux/feature/allProducts/allProductsSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks/hooks";
 
 const OurProducts = () => {
-  const dispatch = useDispatch();
-  const { isLoading, allProducts } = useSelector((state) => state.allProducts);
+  const dispatch = useAppDispatch();
+  const { isLoading, allProducts } = useAppSelector(
+    (state) => state.allProducts
+  );
 
   useEffect(() => {
     dispatch(productFetch());

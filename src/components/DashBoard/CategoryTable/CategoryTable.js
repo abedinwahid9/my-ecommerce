@@ -1,13 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { categoryDatas } from "@/lib/redux/feature/allCategory/allCategorySlice";
 import ImageComponent from "@/components/Share/Image/ImageComponent";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks/hooks";
 
 const CategoryTable = () => {
-  const dispatch = useDispatch();
-  const { isloading, categories, error } = useSelector(
+  const dispatch = useAppDispatch();
+  const { isloading, categories, error } = useAppSelector(
     (state) => state.allCategories
   );
 

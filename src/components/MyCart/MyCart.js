@@ -3,22 +3,22 @@ import Lottie from "lottie-react";
 import mycart from "./mycart.json";
 import Title from "../Share/Title/Title";
 import MyCartCard from "./MyCartCard/MyCartCard";
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getTotal } from "@/lib/redux/feature/cartItem/cartItemSlice";
 import Button from "@/components/Share/Button/Button";
 import NoItemFound from "../Share/NoItemFound/NoItemFound";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks/hooks";
 
 const MyCart = () => {
-  const allCartProducts = useSelector((state) => state.carts.cart);
-  const grandTotal = useSelector((state) => state.carts.grandTotalPrice);
+  const allCartProducts = useAppSelector((state) => state.carts.cart);
+  const grandTotal = useAppSelector((state) => state.carts.grandTotalPrice);
   const [deliverCharge, setDeliverCharge] = useState(300);
 
-  const dispatched = useDispatch();
+  const dispatched = useAppDispatch();
 
   useEffect(() => {
     dispatched(getTotal());
-  }, [allCartProducts]);
+  }, [allCartProducts, dispatched]);
 
   return (
     <>

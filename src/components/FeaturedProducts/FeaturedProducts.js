@@ -8,14 +8,14 @@ import ProductCard from "../ProductCard/ProductCard";
 import { useEffect, useRef, useState } from "react";
 import { GrFormNextLink } from "react-icons/gr";
 import { GrFormPreviousLink } from "react-icons/gr";
-import { useDispatch, useSelector } from "react-redux";
 import { productFetch } from "@/lib/redux/feature/allProducts/allProductsSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks/hooks";
 
 const FeaturedProducts = () => {
   const [prevBtnhide, setPrevBtnhide] = useState(false);
   const [nextBtnhide, setNextBtnhide] = useState(false);
-  const dispatch = useDispatch();
-  const { allProducts } = useSelector((state) => state.allProducts);
+  const dispatch = useAppDispatch();
+  const { allProducts } = useAppSelector((state) => state.allProducts);
 
   useEffect(() => {
     dispatch(productFetch());

@@ -1,11 +1,11 @@
 "use client";
 import { addCart } from "@/lib/redux/feature/cartItem/cartItemSlice";
+import { useAppDispatch } from "@/lib/redux/hooks/hooks";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 
 const ProductDetails = ({ findItem, isLoading }) => {
   const [input, setInput] = useState(1);
-  const dispatched = useDispatch();
+  const dispatched = useAppDispatch();
 
   // Check if allProducts is loading or empty
   if (isLoading) {

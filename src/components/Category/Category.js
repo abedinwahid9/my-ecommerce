@@ -1,17 +1,14 @@
 "use client";
 import Title from "../Share/Title/Title";
-import single from "../../assets/categories/single.jpg";
-import packageImg from "../../assets/categories/package.jpg";
-import Image from "next/image";
 import "./category.css";
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { categoryDatas } from "@/lib/redux/feature/allCategory/allCategorySlice";
 import ImageComponent from "../Share/Image/ImageComponent";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks/hooks";
 
 const Category = () => {
-  const dispatch = useDispatch();
-  const { isloading, categories, error } = useSelector(
+  const dispatch = useAppDispatch();
+  const { isloading, categories, error } = useAppSelector(
     (state) => state.allCategories
   );
 
