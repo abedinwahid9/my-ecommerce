@@ -21,9 +21,9 @@ const ProductDetailsSlider = ({ findItem, isLoading }) => {
     return <p>loading...</p>;
   }
 
-  const { imgData } = findItem;
+  
 
-  console.log(imgData);
+
 
   return (
     <div className="md:w-1/2 w-full">
@@ -38,7 +38,7 @@ const ProductDetailsSlider = ({ findItem, isLoading }) => {
         thumbs={{ swiper: thumbsSwiper }}
         className="mySwiper2"
       >
-        {imgData?.map((img, i) => (
+        {findItem?.imgData.map((img, i) => (
           <SwiperSlide
             key={i}
             style={{ height: "360px" }}
@@ -63,7 +63,7 @@ const ProductDetailsSlider = ({ findItem, isLoading }) => {
         className="mySwiper h-28"
       >
         <SwiperSlide>
-          {imgData?.map((img, i) => (
+          {findItem?.imgData.map((img, i) => (
             <SwiperSlide key={i} className="relative w-full">
               <Image
                 src={img}
