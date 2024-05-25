@@ -6,7 +6,6 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import Image from "next/image";
-import pickle from "@/assets/categories/single.jpg";
 
 // Import Swiper core and required modules
 import SwiperCore, { FreeMode, Navigation, Thumbs } from "swiper/core";
@@ -20,10 +19,6 @@ const ProductDetailsSlider = ({ findItem, isLoading }) => {
   if (isLoading) {
     return <p>loading...</p>;
   }
-
-  
-
-
 
   return (
     <div className="md:w-1/2 w-full">

@@ -5,7 +5,9 @@ import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks/hooks";
 import { useEffect } from "react";
 
 const AllProducts = () => {
-  const { allProducts } = useAppSelector((state) => state.allProducts);
+  const { isLoading, allProducts } = useAppSelector(
+    (state) => state.allProducts
+  );
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -23,7 +25,7 @@ const AllProducts = () => {
 
   return (
     <>
-      <Table tableHead={tableHead} data={allProducts} />
+      <Table tableHead={tableHead} isLoading={isLoading} data={allProducts} />
     </>
   );
 };

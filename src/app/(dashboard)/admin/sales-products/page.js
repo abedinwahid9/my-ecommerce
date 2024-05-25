@@ -1,4 +1,5 @@
 import Table from "@/components/DashBoard/Table/Table";
+import SpinnerLoad from "@/components/Share/Spinner/SpinnerLoad";
 import React from "react";
 
 const page = () => {
@@ -219,7 +220,7 @@ const page = () => {
   return (
     <div>
       <h2>sales products</h2>
-      <Table tableHead={tableHead} data={data} />
+      <SpinnerLoad />
     </div>
   );
 };

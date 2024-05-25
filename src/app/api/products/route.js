@@ -2,7 +2,9 @@ import clientPromise from "@/lib/database/mongodbConnect";
 import { NextResponse } from "next/server";
 
 const client = clientPromise;
-const pickleCollection = client.db("pickleDB").collection("pickleCollection");
+export const pickleCollection = client
+  .db("pickleDB")
+  .collection("pickleCollection");
 
 export async function GET() {
   try {

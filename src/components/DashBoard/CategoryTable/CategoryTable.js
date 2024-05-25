@@ -16,7 +16,6 @@ const CategoryTable = () => {
   }, [dispatch]);
 
   const handleDelete = async (id) => {
-    console.log(id);
     const res = await axios.delete(`/api/categories/delete/${id}`);
 
     dispatch(categoryDatas());

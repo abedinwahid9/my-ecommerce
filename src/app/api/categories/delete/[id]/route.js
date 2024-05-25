@@ -9,9 +9,7 @@ const pickleCategoryCollection = client
 
 export async function DELETE(req, { params }) {
   const { id } = await params;
-
   const query = await { _id: new ObjectId(id) };
-  console.log(query);
   const result = await pickleCategoryCollection.deleteOne(query);
 
   return NextResponse.json(result);

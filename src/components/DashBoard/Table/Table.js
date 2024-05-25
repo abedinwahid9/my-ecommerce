@@ -1,9 +1,6 @@
 "use client";
-// import { PencilIcon } from "@heroicons/react/24/solid";
-// import {
-//   ArrowDownTrayIcon,
-//   MagnifyingGlassIcon,
-// } from "@heroicons/react/24/outline";
+import DeleteBtn from "@/components/Share/DeleteBtn/DeleteBtn";
+import SpinnerLoad from "@/components/Share/Spinner/SpinnerLoad";
 import {
   Typography,
   Button,
@@ -12,9 +9,10 @@ import {
   IconButton,
   Input,
 } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
+import axios from "axios";
+import { useState } from "react";
 
-const Table = ({ tableHead, data }) => {
+const Table = ({ tableHead, data, isLoading }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 6;
   const pageNumbers = [];
@@ -48,6 +46,13 @@ const Table = ({ tableHead, data }) => {
     setCurrentPage(currentPage - 1);
   };
 
+  // item delete functionality
+  const handleDelete = async (id) => {
+    const res = await axios.delete(`/api/products/${id}`);
+
+    console.log(res);
+  };
+
   return (
     <div className="h-full w-full">
       <div floated={false} shadow={false}>
@@ -71,7 +76,7 @@ const Table = ({ tableHead, data }) => {
           </div>
         </div>
       </div>
-      <div className="overflow-auto px-0">
+      <div className=" px-0">
         <table className="w-full  table-auto text-left">
           <thead>
             <tr>
@@ -92,75 +97,85 @@ const Table = ({ tableHead, data }) => {
             </tr>
           </thead>
           <tbody>
-            {currentItems?.map(
-              ({ productName, imgData, category, stock, price }, index) => {
-                const isLast = index === data?.length - 1;
-                const classes = isLast
-                  ? "p-4"
-                  : "p-4 border-b border-blue-gray-50";
+            {isLoading ? (
+              <SpinnerLoad />
+            ) : (
+              currentItems?.map(
+                (
+                  { _id: id, productName, imgData, category, stock, price },
+                  index
+                ) => {
+                  const isLast = index === data?.length - 1;
+                  const classes = isLast
+                    ? "p-4"
+                    : "p-4 border-b border-blue-gray-50";
 
-                return (
-                  <tr key={index}>
-                    <td className={classes}>
-                      <div className="flex items-center gap-3">
+                  return (
+                    <tr key={index}>
+                      <td className={classes}>
+                        <div className="flex items-center gap-3">
+                          <Typography
+                            variant="small"
+                            color="blue-gray"
+                            className="font-bold dark:text-secondaryColor"
+                          >
+                            {productName}
+                          </Typography>
+                        </div>
+                      </td>
+                      <td className={classes}>
                         <Typography
                           variant="small"
                           color="blue-gray"
-                          className="font-bold dark:text-secondaryColor"
+                          className="font-normal dark:text-secondaryColor"
                         >
-                          {productName}
+                          {imgData.length}
                         </Typography>
-                      </div>
-                    </td>
-                    <td className={classes}>
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal dark:text-secondaryColor"
-                      >
-                        {imgData.length}
-                      </Typography>
-                    </td>
-                    <td className={classes}>
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal dark:text-secondaryColor"
-                      >
-                        {category}
-                      </Typography>
-                    </td>
-                    <td className={classes}>
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal dark:text-secondaryColor"
-                      >
-                        {stock}
-                      </Typography>
-                    </td>
-                    <td className={classes}>
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal dark:text-secondaryColor"
-                      >
-                        {price}
-                      </Typography>
-                    </td>
-                    <td className={classes}>
-                      <div className="flex gap-3">
-                        <button className="dark:text-secondaryColor">
-                          edit
-                        </button>
-                        <button className="dark:text-secondaryColor">
-                          delete
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              }
+                      </td>
+                      <td className={classes}>
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal dark:text-secondaryColor"
+                        >
+                          {category}
+                        </Typography>
+                      </td>
+                      <td className={classes}>
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal dark:text-secondaryColor"
+                        >
+                          {stock}
+                        </Typography>
+                      </td>
+                      <td className={classes}>
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal dark:text-secondaryColor"
+                        >
+                          {price}
+                        </Typography>
+                      </td>
+                      <td className={classes}>
+                        <div className="flex gap-3">
+                          <button className="dark:text-secondaryColor">
+                            edit
+                          </button>
+                          <button
+                            onClick={() => handleDelete(id)}
+                            className="dark:text-secondaryColor"
+                          >
+                            <DeleteBtn />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                }
+              )
             )}
           </tbody>
         </table>
@@ -168,7 +183,7 @@ const Table = ({ tableHead, data }) => {
 
       <CardFooter
         className={`${
-          data.length > 5 ? "flex" : "hidden"
+          data?.length > 5 ? "flex" : "hidden"
         }  items-center justify-between border-t border-blue-gray-50 p-4`}
       >
         <Button onClick={handlePrev} variant="outlined" size="sm">
