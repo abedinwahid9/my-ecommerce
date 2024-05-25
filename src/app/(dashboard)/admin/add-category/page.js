@@ -56,7 +56,7 @@ const page = () => {
     }
   };
   return (
-    <div className="py-10 px-5">
+    <div className="py-10 px-5 ">
       <Title title="add category" />
 
       <form

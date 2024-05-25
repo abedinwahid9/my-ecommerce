@@ -23,10 +23,10 @@ const Table = ({ tableHead, data }) => {
 
   const endIndex = currentPage * itemPerPage;
   const startIndex = endIndex - itemPerPage;
-  const currentItems = data.slice(startIndex, endIndex);
+  const currentItems = data?.slice(startIndex, endIndex);
 
   // calculate page count
-  const pageCount = Math.ceil(data.length / itemPerPage);
+  const pageCount = Math.ceil(data?.length / itemPerPage);
   for (let i = 1; i <= pageCount; i++) {
     pageNumbers.push(i);
   }
@@ -92,21 +92,9 @@ const Table = ({ tableHead, data }) => {
             </tr>
           </thead>
           <tbody>
-            {currentItems.map(
-              (
-                {
-                  img,
-                  name,
-                  amount,
-                  date,
-                  status,
-                  account,
-                  accountNumber,
-                  expiry,
-                },
-                index
-              ) => {
-                const isLast = index === data.length - 1;
+            {currentItems?.map(
+              ({ productName, imgData, category, stock, price }, index) => {
+                const isLast = index === data?.length - 1;
                 const classes = isLast
                   ? "p-4"
                   : "p-4 border-b border-blue-gray-50";
@@ -115,18 +103,12 @@ const Table = ({ tableHead, data }) => {
                   <tr key={index}>
                     <td className={classes}>
                       <div className="flex items-center gap-3">
-                        <Avatar
-                          src={img}
-                          alt={name}
-                          size="md"
-                          className="border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1"
-                        />
                         <Typography
                           variant="small"
                           color="blue-gray"
                           className="font-bold dark:text-secondaryColor"
                         >
-                          {index} {name}
+                          {productName}
                         </Typography>
                       </div>
                     </td>
@@ -136,7 +118,7 @@ const Table = ({ tableHead, data }) => {
                         color="blue-gray"
                         className="font-normal dark:text-secondaryColor"
                       >
-                        {amount}
+                        {imgData.length}
                       </Typography>
                     </td>
                     <td className={classes}>
@@ -145,7 +127,25 @@ const Table = ({ tableHead, data }) => {
                         color="blue-gray"
                         className="font-normal dark:text-secondaryColor"
                       >
-                        {date}
+                        {category}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal dark:text-secondaryColor"
+                      >
+                        {stock}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal dark:text-secondaryColor"
+                      >
+                        {price}
                       </Typography>
                     </td>
                     <td className={classes}>
@@ -165,7 +165,12 @@ const Table = ({ tableHead, data }) => {
           </tbody>
         </table>
       </div>
-      <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
+
+      <CardFooter
+        className={`${
+          data.length > 5 ? "flex" : "hidden"
+        }  items-center justify-between border-t border-blue-gray-50 p-4`}
+      >
         <Button onClick={handlePrev} variant="outlined" size="sm">
           Previous
         </Button>

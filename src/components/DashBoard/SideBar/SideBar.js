@@ -12,13 +12,14 @@ const SideBar = () => {
       link: "/admin",
     },
     {
-      name: "add product",
-      link: "/admin/add-product",
-    },
-    {
       name: "add category",
       link: "/admin/add-category",
     },
+    {
+      name: "add product",
+      link: "/admin/add-product",
+    },
+
     {
       name: "all product",
       link: "/admin/all-products",
