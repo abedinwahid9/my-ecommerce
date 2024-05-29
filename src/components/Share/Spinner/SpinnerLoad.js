@@ -1,3 +1,4 @@
+"use client";
 import { Spinner } from "@material-tailwind/react";
 
 const SpinnerLoad = () => {

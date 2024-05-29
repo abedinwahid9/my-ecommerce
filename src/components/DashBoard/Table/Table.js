@@ -1,5 +1,6 @@
 "use client";
 import DeleteBtn from "@/components/Share/DeleteBtn/DeleteBtn";
+import EditButton from "@/components/Share/EditButton/EditButton";
 import SpinnerLoad from "@/components/Share/Spinner/SpinnerLoad";
 import {
   Typography,
@@ -11,6 +12,7 @@ import {
 } from "@material-tailwind/react";
 import axios from "axios";
 import { useState } from "react";
+import UpdateModal from "../UpdateModal/UpdateModal";
 
 const Table = ({ tableHead, data, isLoading }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,7 +56,7 @@ const Table = ({ tableHead, data, isLoading }) => {
   };
 
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full relative">
       <div floated={false} shadow={false}>
         <div className=" p-5 flex flex-col justify-between gap-8 md:flex-row md:items-center">
           <div>
@@ -162,7 +164,7 @@ const Table = ({ tableHead, data, isLoading }) => {
                       <td className={classes}>
                         <div className="flex gap-3">
                           <button className="dark:text-secondaryColor">
-                            edit
+                            <EditButton />
                           </button>
                           <button
                             onClick={() => handleDelete(id)}
@@ -208,6 +210,7 @@ const Table = ({ tableHead, data, isLoading }) => {
           Next
         </Button>
       </CardFooter>
+      <UpdateModal />
     </div>
   );
 };
