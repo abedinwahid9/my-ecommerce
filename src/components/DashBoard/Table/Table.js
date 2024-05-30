@@ -56,7 +56,7 @@ const Table = ({ tableHead, data, isLoading }) => {
   };
 
   // modal functionality
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleModal = () => {
     setModalOpen(false);
