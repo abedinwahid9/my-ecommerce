@@ -1,5 +1,4 @@
 "use client";
-import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
@@ -11,7 +10,9 @@ import "swiper/css/pagination";
 // import "swiper/css/navigation";
 
 import Image from "next/image";
-import bannerImg from "../../assets/banner.jpeg";
+import banner1 from "@/assets/cover/picklecover1.jpg";
+import banner2 from "@/assets/cover/picklecover21.jpg";
+import banner3 from "@/assets/cover/picklecover3.jpg";
 
 export default function BannerSection() {
   return (
@@ -27,16 +28,7 @@ export default function BannerSection() {
         <SwiperSlide>
           <Image
             className="w-full h-full"
-            src={bannerImg}
-            width={0}
-            height={0}
-            alt="banner"
-          />
-        </SwiperSlide>{" "}
-        <SwiperSlide>
-          <Image
-            className="w-full h-full"
-            src={bannerImg}
+            src={banner3}
             width={0}
             height={0}
             alt="banner"
@@ -45,7 +37,16 @@ export default function BannerSection() {
         <SwiperSlide>
           <Image
             className="w-full h-full"
-            src={bannerImg}
+            src={banner2}
+            width={0}
+            height={0}
+            alt="banner"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image
+            className="w-full h-full"
+            src={banner1}
             width={0}
             height={0}
             alt="banner"

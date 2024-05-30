@@ -25,15 +25,16 @@ const NavbarCom = () => {
       fluid
       rounded
     >
-      <div className="flex">
-        <Image
+      {/* logo or company name */}
+      <div className="flex w-24 justify-center">
+        {/* <Image
           width={100}
           height={100}
           src="/favicon.svg"
           className="mr-3 h-6 sm:h-9"
           alt=" React Logo"
-        />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+        /> */}
+        <span className="self-center uppercase font-lobsterTwo whitespace-nowrap text-xl font-semibold dark:text-white">
           pickle
         </span>
       </div>

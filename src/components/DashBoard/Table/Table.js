@@ -55,6 +55,18 @@ const Table = ({ tableHead, data, isLoading }) => {
     console.log(res);
   };
 
+  // modal functionality
+  const [modalOpen, setModalOpen] = useState(true);
+
+  const handleModal = () => {
+    setModalOpen(false);
+  };
+
+  // item edit functionality
+  const handleEdit = () => {
+    setModalOpen(true);
+  };
+
   return (
     <div className="h-full w-full relative">
       <div floated={false} shadow={false}>
@@ -163,7 +175,10 @@ const Table = ({ tableHead, data, isLoading }) => {
                       </td>
                       <td className={classes}>
                         <div className="flex gap-3">
-                          <button className="dark:text-secondaryColor">
+                          <button
+                            onClick={handleEdit}
+                            className="dark:text-secondaryColor"
+                          >
                             <EditButton />
                           </button>
                           <button
@@ -210,7 +225,7 @@ const Table = ({ tableHead, data, isLoading }) => {
           Next
         </Button>
       </CardFooter>
-      <UpdateModal />
+      <UpdateModal handleModal={handleModal} modalOpen={modalOpen} />
     </div>
   );
 };
