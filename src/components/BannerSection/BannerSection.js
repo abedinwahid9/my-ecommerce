@@ -16,9 +16,9 @@ import banner3 from "@/assets/cover/picklecover3.jpg";
 
 export default function BannerSection() {
   return (
-    <div className="drop-shadow-2xl">
+    <div>
       <Swiper
-        className="mySwiper styles md:h-[500px] h-[250px]"
+        className="mySwiper styles md:h-[650px] h-[300px]"
         loop={true}
         pagination={{
           clickable: true,
