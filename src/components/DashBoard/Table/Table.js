@@ -18,6 +18,9 @@ const Table = ({ tableHead, data, isLoading }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 6;
   const pageNumbers = [];
+  // modal functionality
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalData, setModalData] = useState();
 
   // get current data
 
@@ -50,21 +53,20 @@ const Table = ({ tableHead, data, isLoading }) => {
 
   // item delete functionality
   const handleDelete = async (id) => {
-    const res = await axios.delete(`/api/products/${id}`);
+    // const res = await axios.delete(`/api/products/${id}`);
 
-    console.log(res);
+    console.log(id);
   };
-
-  // modal functionality
-  const [modalOpen, setModalOpen] = useState(false);
 
   const handleModal = () => {
     setModalOpen(false);
   };
 
   // item edit functionality
-  const handleEdit = () => {
+  const handleEdit = (id) => {
+    setModalData(id);
     setModalOpen(true);
+    console.log(id);
   };
 
   return (
@@ -176,7 +178,7 @@ const Table = ({ tableHead, data, isLoading }) => {
                       <td className={classes}>
                         <div className="flex gap-3">
                           <button
-                            onClick={handleEdit}
+                            onClick={() => handleEdit(id)}
                             className="dark:text-secondaryColor"
                           >
                             <EditButton />
@@ -225,7 +227,11 @@ const Table = ({ tableHead, data, isLoading }) => {
           Next
         </Button>
       </CardFooter>
-      <UpdateModal handleModal={handleModal} modalOpen={modalOpen} />
+      <UpdateModal
+        modalData={modalData}
+        handleModal={handleModal}
+        modalOpen={modalOpen}
+      />
     </div>
   );
 };
