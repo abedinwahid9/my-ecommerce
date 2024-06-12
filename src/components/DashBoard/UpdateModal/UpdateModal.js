@@ -9,27 +9,31 @@ import Button from "@/components/Share/Button/Button";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks/hooks";
 import { productFetch } from "@/lib/redux/feature/allProducts/allProductsSlice";
 
-const UpdateModal = ({ handleModal, modalOpen, modalData }) => {
+const UpdateModal = ({ handleModal, modalOpen, modalData, setModalOpen }) => {
   const [isVisible, setIsVisible] = useState(modalOpen);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { isLoading, allProducts } = useAppSelector(
     (state) => state.allProducts
   );
-  const dispatch = useAppDispatch();
 
   const filterData = allProducts?.filter((data) => data._id === modalData);
 
   useEffect(() => {
-    dispatch(productFetch());
     if (modalOpen) {
       setIsVisible(true);
+      reset();
     } else {
       const timer = setTimeout(() => setIsVisible(false), 2000);
       return () => clearTimeout(timer);
     }
-  }, [modalOpen]);
+  }, [modalOpen, reset]);
 
   if (!isVisible) return null;
+
+  const handleUpdateFrom = (data) => {
+    console.log(data);
+    setModalOpen(false);
+  };
 
   return (
     <div
@@ -42,7 +46,10 @@ const UpdateModal = ({ handleModal, modalOpen, modalData }) => {
         <p>ID: {modalData}</p>
         <p>item: mango</p>
         <hr className="text-white" />
-        <form className="py-5 flex flex-col gap-5">
+        <form
+          onSubmit={handleSubmit(handleUpdateFrom)}
+          className="py-5 flex flex-col gap-5"
+        >
           <div className="flex gap-4">
             <InputField
               formData={register}
@@ -62,27 +69,26 @@ const UpdateModal = ({ handleModal, modalOpen, modalData }) => {
           <div className="flex gap-4">
             <InputField
               formData={register}
-              input="price"
-              inputName="price"
-              type="text"
-              value={filterData[0].price}
-            />
-            <InputField
-              formData={register}
               input="stock"
               inputName="stock"
               type="text"
               value={filterData[0].stock}
+            />
+            <InputField
+              formData={register}
+              input="price"
+              inputName="price"
+              type="text"
+              value={filterData[0].price}
             />
           </div>
           <Button
             type="submit"
             color="bg-optionalColor"
             width="w-full"
-            text="add category"
+            text="update item"
           />
         </form>
-
         <div onClick={handleModal} className="absolute top-2 right-2">
           <CloseButton />
         </div>

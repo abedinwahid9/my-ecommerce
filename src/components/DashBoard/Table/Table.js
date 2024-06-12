@@ -231,6 +231,7 @@ const Table = ({ tableHead, data, isLoading }) => {
         modalData={modalData}
         handleModal={handleModal}
         modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
       />
     </div>
   );
