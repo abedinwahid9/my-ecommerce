@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import Button from "@/components/Share/Button/Button";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks/hooks";
 import { productFetch } from "@/lib/redux/feature/allProducts/allProductsSlice";
+import axios from "axios";
 
 const UpdateModal = ({ handleModal, modalOpen, modalData, setModalOpen }) => {
   const [isVisible, setIsVisible] = useState(modalOpen);
@@ -15,24 +16,24 @@ const UpdateModal = ({ handleModal, modalOpen, modalData, setModalOpen }) => {
   const { isLoading, allProducts } = useAppSelector(
     (state) => state.allProducts
   );
-
   const filterData = allProducts?.filter((data) => data._id === modalData);
-
   useEffect(() => {
     if (modalOpen) {
       setIsVisible(true);
       reset();
     } else {
-      const timer = setTimeout(() => setIsVisible(false), 2000);
+      const timer = setTimeout(() => setIsVisible(false), 1000);
       return () => clearTimeout(timer);
     }
   }, [modalOpen, reset]);
 
   if (!isVisible) return null;
 
-  const handleUpdateFrom = (data) => {
+  const handleUpdateFrom = async (data) => {
     console.log(data);
-    setModalOpen(false);
+    // setModalOpen(false);
+    const res = await axios.put(`/api/products/${filterData[0]._id}`, data);
+    console.log(res);
   };
 
   return (
@@ -43,7 +44,7 @@ const UpdateModal = ({ handleModal, modalOpen, modalData, setModalOpen }) => {
     >
       <div className="w-[500px] h-auto flex flex-col animated bg-blue-gray-500 relative rounded-lg p-5 items-center justify-center">
         <Title title="update products" />
-        <p>ID: {modalData}</p>
+        <p>ID: {filterData[0]._id}</p>
         <p>item: mango</p>
         <hr className="text-white" />
         <form
