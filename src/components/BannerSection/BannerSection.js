@@ -12,13 +12,13 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import banner1 from "@/assets/cover/picklecover1.jpg";
 import banner2 from "@/assets/cover/picklecover21.jpg";
-import banner3 from "@/assets/cover/picklecover3.jpg";
+import banner3 from "@/assets/cover/picklecover3.png";
 
 export default function BannerSection() {
   return (
     <div>
       <Swiper
-        className="mySwiper styles md:h-[650px] h-[300px]"
+        className="mySwiper styles md:h-[500px] h-[300px]"
         loop={true}
         pagination={{
           clickable: true,
@@ -27,7 +27,7 @@ export default function BannerSection() {
       >
         <SwiperSlide>
           <Image
-            className="w-full h-full"
+            className="w-full h-full "
             src={banner3}
             width={0}
             height={0}
@@ -36,8 +36,8 @@ export default function BannerSection() {
         </SwiperSlide>
         <SwiperSlide>
           <Image
-            className="w-full h-full"
-            src={banner2}
+            className="w-full h-full "
+            src={banner3}
             width={0}
             height={0}
             alt="banner"
@@ -45,8 +45,8 @@ export default function BannerSection() {
         </SwiperSlide>
         <SwiperSlide>
           <Image
-            className="w-full h-full"
-            src={banner1}
+            className="w-full h-full "
+            src={banner3}
             width={0}
             height={0}
             alt="banner"
